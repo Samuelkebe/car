@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Motors </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+<style>
+    /* Custom Styles */
+    .navbar {
+        background-color: #f8f9fa; /* Light background for navbar */
+        font-weight: bold;
+    }
+
+    .navbar-nav {
+            margin-left: auto; /* Push navbar items to the right */
+    }
+    .navbar-brand img {
+        max-height: 50px; /* Adjust logo size */
+    }
+    .navbar-brand {
+            margin-right: auto; /* Push brand to the left */
+    }
+    .navbar-brand h1 {
+        font-weight: bold;
+        font-size: 24px;
+        margin: 0;
+        color: #078bbe;
+        margin-right: auto;
+    }
+
+
+
+    /* Hero Section Styles */
+    .hero {
+        display: flex;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-left {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px 50px;
+        color: #fff;
+        background: linear-gradient(to right, rgb(0, 0, 0), rgb(16, 185, 197), rgb(162, 222, 224));
+    }
+
+    .hero-left h1 {
+        font-size: 4em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .hero-left p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .btn-book-now {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .hero-right {
+        width: 50%;
+        position: relative;
+    }
+
+    /* Slider Styles */
+    .hero-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .hero-slider .slick-slide {
+        position: relative;
+        height: 100%;
+    }
+
+    .hero-slider .slick-slide img {
+        width: 110%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-slider .slick-prev,
+    .hero-slider .slick-next {
+        display: none !important; /* Hide the prev/next buttons */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .hero-slider .slick-prev {
+        left: 10px;
+    }
+
+    .hero-slider .slick-next {
+        right: 10px;
+    }
+
+    .hero-slider .slick-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 3;
+    }
+
+    .hero-slider .slick-dots li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .hero-slider .slick-dots li.slick-active {
+        background-color: #fff;
+    }
+
+    /* Custom Styles */
+    .car-card {
+        border: 1px solid #dee2e6;
+        margin-bottom: 20px;
+    }
+
+    .car-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        background-color: hsl(0, 0%, 0%);
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+</style>
+</head>
+<body class="bg-light font-inter">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" style="background-color: #0faabe;">
+                    <a class="nav-link" href="car.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventory.html">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Shop.HTML">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.HTML">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>   
+    <div class="hero">
+        <div class="hero-left">
+            <h1>Find Your Dream Ride Today</h1>
+            <p>🔥 Best Deals • Top Brands • Easy Financing!</p>
+            <p>Experience luxury with a Lamborghini rental. Choose from a wide selection of models for any occasion.</p>
+            <a href="#" class="btn-book-now">Book now</a>
+        </div>
+        <div class="hero-right">
+            <div class="hero-slider">
+                <div class="slick-slide">
+                    <img src="picture room/Banner.jpg" alt="picture room/Banner.jpg">
+                </div>
+                <div class="slick-slide">
+                    <img src="picture room/lambo2.jpg" alt="picture room/lambo2.jpg">
+                </div>
+                <div class="slick-slide">
+                    <img src="picture room/lambo3.jpg" alt="Lamborghini 3">
+                </div>
+                <div class="slick-slide">
+                    <img src="picture room/lam 6.jpeg" alt="picture room/lam 6.jpeg">
+                </div>
+                <div class="slick-slide">
+                    <img src="picture room/lambo2.jpg" alt="picture room/lambo2.jpg">
+                </div>
+                <div class="slick-slide">
+                    <img src="picture room/buga 1.jpeg" alt="Lamborghini 3">
+                </div>
+            </div>
+        </div>
+    </div>
+                                   <!-- Car Section -->
+    <div class="container mt-5">
+        <h2>Welcome to Motors World</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/BMW 535I.png" alt="BMW 535I" data-toggle="modal" data-target="#carModal" 
+                    data-name="BMW 535I, NAVI" data-price="$45,000" data-img="picture room/BMW 535I.png"
+                    data-description="The BMW 535I is a luxury sedan that combines performance, elegance, and cutting-edge technology. 
+                    Key features visible:
+                    
+                    - Color: White
+                    - Make and Model: BMW 5 Series (G30)
+                    - Body Style: Sedan
+                    - Front View: The image primarily focuses on the front of the car.
+                    - License Plate: The license plate is visible and reads 'M88 4142'.
+                    - Wheels: The car has multi-spoke alloy wheels.
+                    - Headlights: The headlights are clearly visible and appear to be LED.
+                    - Grille: The signature BMW kidney grille is prominently displayed in the center.
+                    - BMW Logo: The BMW logo is visible on the hood.
+                    - Door Handles: The door handles are visible on the side doors.
+                    - Mirrors: The side mirrors are visible and are painted in the same color as the car.">
+                    <div class="p-3">
+                        <h5>BMW 535I, NAVI</h5>
+                        <p>$45,000</p>
+                    </div>
+                </div>
+            </div>             
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/Toyota Camry XSE.heif" alt="Toyota Camry XSE" data-toggle="modal" data-target="#carModal" 
+                    data-name="Toyota Camry XSE" data-price="$25,000" data-img="picture room/Toyota Camry XSE.heif" 
+                    data-description="Key Features of the Toyota Camry XSE (Based on Typical Model Specifications):
+            
+                    - Sporty Styling: The XSE trim is known for its sportier appearance compared to other Camry models. This includes:
+                    - Gloss-Black Accents: Grille, side mirrors, rear spoiler, and window trim are often finished in gloss black for a more aggressive look.
+                    - Sport-Tuned Suspension: Provides a firmer ride and improved handling.
+                    - Dual Exhaust with Chrome Tips: Enhances the sporty aesthetic.
+                    - Unique Alloy Wheels: Larger and more stylish wheels compared to base models.
+            
+                    Performance:
+                    - Engine Options: Typically offers a more powerful engine option, suAch as a 3.5-liter V6, in addition to the standard 2.5-liter 4-cylinder.
+                    - Paddle Shifters: For manual gear selection in automatic transmission models.
+            
+                    Interior Comfort and Convenience:">
+                    <div class="p-3">
+                        <h5>Toyota Camry XSE</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/Kia Soul, Brand New.png" alt="Kia Soul" data-toggle="modal" data-target="#carModal" 
+                    data-name="Kia Soul, Brand New" data-price="$25,000" data-img="picture room/Kia Soul, Brand New.png" 
+                    data-description="Key Features of the Kia Soul, Brand New:
+            
+                    - Bold and Stylish Design: The Kia Soul stands out with its boxy design and vibrant colors.
+                    - Spacious Interior: Offers ample room for passengers and cargo, with easy access to both front and rear seats.
+                    - Advanced Technology: Equipped with a touchscreen infotainment system, Apple CarPlay, Android Auto, and Bluetooth connectivity.
+                    - Comfortable Ride: The suspension is tuned to provide a smooth, comfortable driving experience.
+                    - Safety Features: Includes forward collision warning, lane departure warning, and a rearview camera.
+            
+                    Performance:
+                    - Engine Options: Typically features a 2.0-liter 4-cylinder engine providing solid performance for city and highway driving.
+                    - Fuel Efficiency: Known for great fuel economy, making it an affordable option for daily commuters.
+            
+                    Interior Features:
+                    - Seating: Comfortable cloth upholstery with available options for leather trim.
+                    - Cargo Space: A flat-folding rear seat for maximum cargo capacity.
+                    - Climate Control: Automatic climate control for convenience during all seasons.">
+                    <div class="p-3">
+                        <h5>Kia Soul, Brand New</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                       
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/Hyundai Veloster.png" alt="Hyundai Veloster" data-toggle="modal" data-target="#carModal" 
+                    data-name="Hyundai Veloster" data-price="$25,000" data-img="picture room/Hyundai Veloster.png" 
+                    data-description="Key Features of the Hyundai Veloster:
+            
+                    - Unique Design: The Hyundai Veloster stands out with its asymmetrical door design and sporty appeal.
+                    - Turbocharged Engine: The Veloster offers a turbocharged option for increased performance and driving excitement.
+                    - Modern Interior: Features a sleek, tech-friendly cabin with an intuitive touchscreen, Bluetooth connectivity, and smartphone integration.
+                    - Safety Features: Equipped with forward collision warning, lane departure warning, and a rearview camera.
+                    - Performance: Provides agile handling, making it a fun car to drive on both city streets and winding roads.
+            
+                    Interior Features:
+                    - Seating: Stylish cloth or leather upholstery options, designed for comfort during long drives.
+                    - Tech Features: Includes Apple CarPlay, Android Auto, and an 8-inch touchscreen for infotainment control.
+                    - Cargo Space: Despite its compact size, the Veloster offers a surprisingly spacious cargo area for everyday use.
+            
+                    Fuel Efficiency:
+                    - Excellent fuel economy makes it an affordable option for city driving and highway cruising.">
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                        
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/fake1.jpeg" alt="BMW Vision M Next" data-toggle="modal" data-target="#carModal"
+                    data-name="BMW Vision M Next" data-price="$25,000" data-img="picture room/fake1.jpeg"
+                    data-description="The BMW Vision M Next is a futuristic concept car that blends cutting-edge design with high-performance technology. 
+            
+            Key Features:
+            - **Distinctive Design**: Features sharp, angular lines with a low-slung, aggressive profile. The scissor doors that open upwards make it visually striking and unique.
+            - **Color Scheme**: The body is finished in a sleek silver, accented with bold orange details around the front grille and rear wheels, emphasizing its sporty and dynamic appearance.
+            - **Illuminated Grille & Headlights**: A futuristic illuminated kidney grille is paired with slim, angular LED headlights, reflecting the Vision M Next’s forward-thinking design language.
+            - **Wheels**: Multi-spoke, two-tone wheels enhance the car’s sporty look while complementing its bold exterior.
+            - **Interior**: A minimalist, driver-focused interior designed for performance with cutting-edge technology, including an innovative display and unique seating layout.
+            - **Performance**: The Vision M Next is powered by a plug-in hybrid engine that delivers exceptional power and driving dynamics, ensuring an exhilarating driving experience.
+            ">
+                    <div class="p-3">
+                        <h5>BMW Vision M Next</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                        
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/fake2.jpeg" alt="Hyundai Creta" data-toggle="modal" data-target="#carModal"
+                    data-name="Hyundai Creta" data-price="$25,000" data-img="picture room/fake2.jpeg"
+                    data-description="The Hyundai Creta is a compact SUV that stands out with its bold design and advanced features. 
+            
+            Key Features:
+            - **Distinctive Design**: The Creta showcases a unique styling with a bold split headlight design, a large, prominent front grille, and a boxy silhouette, making it instantly recognizable on the road.
+            - **Badging**: The iconic 'CRETA' badging is displayed on the front grille, confirming the model and adding to its distinctiveness.
+            - **Front Grille & Headlights**: The large grille and the dual-headlight setup give the Creta a modern, aggressive front end.
+            - **Overall Look**: The design elements of the Creta, including the distinctive grille pattern, the headlights’ shape, and the sporty wheel design, match the latest 2024 Hyundai Creta, offering a blend of sophistication and ruggedness.
+            - **Interior Features**: Inside, the Creta offers a comfortable and well-equipped cabin with tech features, including a touchscreen infotainment system, a modern dashboard, and ample space for passengers.
+            - **Performance**: The Hyundai Creta delivers a smooth driving experience with its responsive engine options and advanced suspension system, making it ideal for both city and off-road driving."
+                    ">
+                    <div class="p-3">
+                        <h5>Hyundai Creta</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                        
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/fake3.jpeg" alt="Hyundai Creta S" data-toggle="modal" data-target="#carModal"
+                    data-name="Hyundai Creta S" data-price="$25,000" data-img="picture room/fake3.jpeg"
+                    data-description="The Hyundai Creta S is a stylish and feature-rich compact SUV, designed to offer excellent performance and comfort.
+            
+            Key Features:
+            - **Engine**: 1.5L MPi petrol engine for efficient performance.
+            - **Transmission**: Manual transmission for a responsive and engaging driving experience.
+            - **Power**: 113.18 bhp to provide sufficient power for city and highway driving.
+            - **Torque**: 143.8 Nm of torque for improved acceleration and responsiveness.
+            - **Mileage**: 17.4 kmpl, offering an excellent balance of performance and fuel efficiency.
+            - **Safety**: Equipped with 6 airbags, ABS, EBD, and ESC for enhanced safety.
+            - **Comfort & Convenience**: Features include air conditioning, power windows, keyless entry, and steering-mounted audio controls for a comfortable and enjoyable ride.
+            - **Design**: Bold and modern design with a sleek front grille and stylish alloy wheels, adding to its premium appeal."
+                    ">
+                    <div class="p-3">
+                        <h5>Hyundai Creta S</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                        
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="picture room/bugati.jpg" alt="Bugatti Mistral" data-toggle="modal" data-target="#carModal"
+                    data-name="Bugatti Mistral" data-price="$25,000" data-img="picture room/bugati.jpg"
+                    data-description="The Bugatti Mistral is a luxury roadster that combines exceptional performance with stunning design features.
+            
+            Key Features:
+            - **Open-Top Design**: As a roadster, the Mistral offers an exhilarating open-top experience, perfect for enjoying the outdoors.
+            - **Distinctive Headlights**: The Mistral is equipped with unique, vertically oriented LED headlights, adding to its futuristic and sophisticated appearance.
+            - **Rear Design**: The rear of the Mistral features a signature X-shaped taillight design, enhancing its unique styling.
+            - **Overall Proportions**: Compared to the Bugatti Chiron, the Mistral has a more elongated and elegant profile, giving it a graceful yet powerful look.
+            - **Performance**: Known for its exceptional speed and handling, the Mistral offers unmatched driving dynamics."
+                    ">
+                    <div class="p-3">
+                        <h5>Bugatti Mistral</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>                 
+        </div>
+    </div>
+<!-- Modal for Car Details -->
+<div class="modal fade" id="carModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel">Car Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalCarImage" src="" alt="Car Image" class="img-fluid mb-3" style="width: 100%;">
+                <h5 id="modalCarName"></h5>
+                <p id="modalCarPrice"></p>
+                <p id="modalCarDescription"></p>
+                <!-- Key Features Section -->
+                <h6>Key Features</h6>
+                <ul id="modalKeyFeatures"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                                  <!-- Scroll Section -->
+    <div id="scroll-section" class="container-fluid mt-5 py-5" style="background-image: linear-gradient(to right, #000000, hsl(180, 87%, 40%)); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Section - Text Content -->
+                <div class="col-lg-6 text-left">
+                    <h1 class="display-4 font-weight-bold mb-4" style="font-size: 3rem;">Find The Best Deals And Sell Your Vehicle At The Best Price</h1>
+                    <p class="lead mb-3" style="font-size: 1.25rem;">A Car Magazine That Surely Stands Out</p>
+                    <p class="mb-4" style="font-size: 1.2rem;">Click here to find out about your newest dream car</p>
+                    
+                    <p class="lead font-weight-bold mb-4" style="font-size: 1.5rem; background: linear-gradient(to right, hsl(125, 90%, 51%), hwb(0 8% 8%)); -webkit-background-clip: text; color: transparent;">
+                        Phoenix
+                    </p>
+                                        
+                    
+                    <h2 class="mt-4 mb-3" style="font-size: 2rem;">What We Do</h2>
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: #dcdcdc;">Having been in business for more than 43 years, we work with many dealerships in helping them reach a wider audience. Our magazine serves as a platform where you can advertise your car to potential buyers, trade your vehicle in, and compare different models. All our issues are available in digital and print formats.</p>
+                    
+                    <div class="d-flex mt-4">
+                        <a href="#" class="btn btn-warning btn-lg mr-3 shadow" style="font-size: 1.2rem; padding: 12px 30px;">Search Engine</a>
+                        <a href="#" class="btn btn-outline-light btn-lg shadow" style="font-size: 1.2rem; padding: 12px 30px;">Check Out Dealerships</a>
+                    </div>
+                </div>
+    
+                <!-- Right Section - Image -->
+                <div class="col-lg-6 text-center mt-4 mt-lg-0">
+                    <img src="picture room/bugati.jpg" alt="Car" class="img-fluid rounded shadow-lg" style="max-width: 150%; height: auto; width: 150%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- New Futuristic Features Section -->
+<section class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="mb-4">Experience the Future of Car Shopping</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- AR Preview Feature -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-box" style="font-size: 3rem; color: #078bbe;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 class="mt-3">AR Car Preview</h4>
+                    <p>See any car in your driveway using augmented reality before you buy</p>
+                    <button class="btn btn-outline-primary mt-2 ar-preview-btn" data-model="bmw-535i">
+                        Try It Now
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AI Recommendation -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-box" style="font-size: 3rem; color: #078bbe;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="mt-3">AI Car Match</h4>
+                    <p>Our AI will find your perfect car based on your lifestyle and preferences</p>
+                    <button class="btn btn-outline-primary mt-2" data-toggle="modal" data-target="#aiModal">
+                        Get Recommendations
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Voice Search -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-box" style="font-size: 3rem; color: #078bbe;">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h4 class="mt-3">Voice Search</h4>
+                    <p>Just say what you're looking for and we'll find it for you</p>
+                    <button class="btn btn-outline-primary mt-2 voice-search-btn">
+                        <i class="fas fa-microphone mr-2"></i>Speak Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3D Viewer and Virtual Test Drive -->
+    <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-box" style="font-size: 3rem; color: #078bbe;">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h4 class="mt-3">3D Car Explorer</h4>
+                    <p>Inspect every angle of your dream car with our interactive 3D viewer</p>
+                    <button class="btn btn-outline-primary mt-2" data-toggle="modal" data-target="#3dModal">
+                        Explore in 3D
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-box" style="font-size: 3rem; color: #078bbe;">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h4 class="mt-3">Virtual Test Drive</h4>
+                    <p>Experience the thrill of driving before visiting the dealership</p>
+                    <button class="btn btn-outline-primary mt-2" data-toggle="modal" data-target="#vrModal">
+                        Start Test Drive
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Recommendation Modal -->
+<div class="modal fade" id="aiModal" tabindex="-1" role="dialog" aria-labelledby="aiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="aiModalLabel">AI Car Match</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Tell us about yourself</h5>
+                            <form id="aiForm">
+                                <div class="form-group">
+                                    <label>What's your budget range?</label>
+                                    <select class="form-control">
+                                        <option>Under $20,000</option>
+                                        <option>$20,000 - $40,000</option>
+                                        <option>$40,000 - $60,000</option>
+                                        <option>$60,000+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Primary use for the vehicle?</label>
+                                    <select class="form-control">
+                                        <option>Daily Commute</option>
+                                        <option>Family Vehicle</option>
+                                        <option>Weekend Fun</option>
+                                        <option>Off-Road Adventures</option>
+                                        <option>Luxury Experience</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Most important feature?</label>
+                                    <select class="form-control">
+                                        <option>Fuel Efficiency</option>
+                                        <option>Performance</option>
+                                        <option>Safety</option>
+                                        <option>Technology</option>
+                                        <option>Comfort</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Find My Match</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="aiResults" class="text-center mt-4" style="display: none;">
+                                <h4>Your Perfect Match</h4>
+                                <div class="card mt-3">
+                                    <img src="picture room/BMW 535I.png" class="card-img-top" alt="Recommended Car">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BMW 535I</h5>
+                                        <p class="card-text">Based on your preferences, this luxury sedan matches 92% of your criteria.</p>
+                                        <a href="#" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 3D Viewer Modal -->
+<div class="modal fade" id="3dModal" tabindex="-1" role="dialog" aria-labelledby="3dModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="3dModalLabel">3D Car Explorer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div style="height: 500px; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;">
+                    <div>
+                        <i class="fas fa-cube" style="font-size: 3rem; color: #078bbe;"></i>
+                        <p class="mt-3">Interactive 3D Viewer Loading...</p>
+                        <p>Rotate, zoom, and explore every detail of your dream car</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-outline-secondary mr-2"><i class="fas fa-redo"></i> Reset View</button>
+                    <button class="btn btn-outline-secondary mr-2"><i class="fas fa-paint-brush"></i> Change Color</button>
+                    <button class="btn btn-outline-secondary"><i class="fas fa-cog"></i> View Interior</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VR Test Drive Modal -->
+<div class="modal fade" id="vrModal" tabindex="-1" role="dialog" aria-labelledby="vrModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vrModalLabel">Virtual Test Drive</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div style="height: 300px; background-color: #000; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
+                            <i class="fas fa-vr-cardboard" style="font-size: 3rem;"></i>
+                            <p class="mt-3">Virtual Test Drive Experience</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h5>Choose Your Experience</h5>
+                        <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
+                            <label class="btn btn-outline-primary active">
+                                <input type="radio" name="driveMode" checked> City Driving
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="driveMode"> Highway Cruise
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="driveMode"> Mountain Roads
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-primary btn-lg"><i class="fas fa-play mr-2"></i> Start Test Drive</button>
+                    </div>
+                    <div class="mt-3 text-muted">
+                        <small>For best experience, use VR headset or rotate device</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Voice Search Functionality
+    $(document).ready(function(){
+        $('.voice-search-btn').click(function(){
+            // This would normally integrate with Web Speech API
+            $(this).html('<i class="fas fa-microphone-slash mr-2"></i> Listening...');
+            setTimeout(function(){
+                $('.voice-search-btn').html('<i class="fas fa-microphone mr-2"></i> Speak Now');
+                alert("Voice search would activate here in a real implementation. We heard: 'Show me luxury SUVs under $50,000'");
+            }, 2000);
+        });
+        
+        // AR Preview Button
+        $('.ar-preview-btn').click(function(){
+            alert("In a real implementation, this would launch AR view to place the car in your environment using your camera.");
+        });
+        
+        // AI Form Submission
+        $('#aiForm').submit(function(e){
+            e.preventDefault();
+            $('#aiResults').fadeIn();
+            $('html, body').animate({
+                scrollTop: $('#aiResults').offset().top - 100
+            }, 500);
+        });
+    });
+</script>
+
+<style>
+    /* Additional styles for new features */
+    .icon-box {
+        transition: all 0.3s ease;
+    }
+    .card:hover .icon-box {
+        transform: scale(1.2);
+    }
+    .ar-preview-btn, .voice-search-btn {
+        transition: all 0.3s ease;
+    }
+    .ar-preview-btn:hover, .voice-search-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    #aiResults {
+        transition: all 0.5s ease;
+    }
+</style>
+    <footer class="footer">
+        <p>&copy; 2024 Motors. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.hero-slider').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false // Fix for arrows
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('a[href="#scroll-section"]').on('click', function(event) {
+                if ($('#scroll-section').length) { // Prevent error if element is missing
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $('#scroll-section').offset().top
+                    }, 1000);
+                }
+            });
+        });
+    </script>    
+    <script>
+        $(document).ready(function() {
+    // When an image with data-toggle="modal" is clicked
+    $('img[data-toggle="modal"]').on('click', function() {
+        var carName = $(this).data('name');
+        var carPrice = $(this).data('price');
+        var carImg = $(this).data('img');
+        var carDescription = $(this).data('description');
+        
+        // Extract key features from description (assuming it's in a structured format)
+        var features = carDescription.split("\n").map(function(line) {
+            return "<li>" + line.trim() + "</li>";
+        }).join('');
+        
+        // Populate the modal with car details
+        $('#modalCarName').text(carName);
+        $('#modalCarPrice').text(carPrice);
+        $('#modalCarImage').attr('src', carImg);
+        $('#modalCarDescription').text(carDescription);
+        $('#modalKeyFeatures').html(features); // Add the key features dynamically
+    });
+});
+    </script>
+</body>
+</html>

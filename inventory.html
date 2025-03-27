@@ -1,111 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Inventory</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sales Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        /* Your Inventory Page CSS Here */
+        /* Custom CSS for image size consistency */
+        .car-card {
+            display: flex;
+        }
+        .car-card-image {
+            width: 100%;
+            max-height: 200px;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Image in card header */
+        .car-card-image-top {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        /* Adjust the card content layout */
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 150px;
+        }
+
+        /* Dropdown custom styles */
+        .select-arrow {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .select-arrow select {
+            width: 200px;
+        }
+
+        .select-arrow::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #4a5568;
+            pointer-events: none;
+        }
+
+        /* Navbar adjustments */
         .navbar {
             background-color: #f8f9fa;
             font-weight: bold;
         }
 
         .navbar-brand img {
+            max-height: 50px;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-brand {
+            margin-right: auto;
+        }
+
+        .navbar-brand h1 {
             font-weight: bold;
-            max-height: 50px; /* Reduced height to match the other page */
-            margin-right: 10px;
-        }
-
-        .navbar-brand h1{
             font-size: 24px;
-            color: #003366;
             margin: 0;
-        }
-
-        .inventory-container {
-            display: flex;
-            width: 100%;
-        }
-
-        .filters {
-            width: 20%;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-
-        .filters h2 {
-            margin-bottom: 10px;
-        }
-
-        .filters ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .filters li {
-            margin-bottom: 5px;
-        }
-
-        .results {
-            width: 80%;
-            padding: 20px;
-        }
-
-        .car-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .car-item {
-            text-align: center;
-        }
-
-        .car-item img {
-            width: 200px; /* Adjust as needed */
-            height: 150px; /* Adjust as needed */
-            object-fit: cover;
+            color: #0987ad;
         }
     </style>
 </head>
-<body>
+<body class="bg-light font-inter">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
             <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
-        </a>        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="car.html">Home</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item" style="background-color: #0faabe;">
                     <a class="nav-link" href="inventory.html">Inventory</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Services.html">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pages</a>
+                    <a class="nav-link" href="Blog.html">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="Shop.HTML">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Compare</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
+                    <a class="nav-link" href="Contact.HTML">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -115,102 +120,375 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="filters">
-                    <h2>Offer Types</h2>
-                    <ul>
-                        <li>Finance Offers</li>
-                        <li>Cash and Finance</li>
-                        <li>Cash Offers</li>
-                        <li>Lease Offers</li>
-                    </ul>
-                    <h2>Year</h2>
-                    <ul>
-                        <li>2016</li>
-                        <li>2017</li>
-                    </ul>
-                    <h2>Make</h2>
-                    <ul>
-                        <li>Alfa Romeo</li>
-                        <li>Chrysler</li>
-                        <li>Fiat</li>
-                    </ul>
-                    <h2>Body Style</h2>
-                    <ul>
-                        <li>Convertible</li>
-                        <li>Coupe</li>
-                        <li>Hatchback</li>
-                    </ul>
+    <div class="container py-4">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-6">449,776 cars found</h1>
+        <div class="row g-4 mb-6">
+            <div class="col-md-4 col-sm-8">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-lg font-semibold text-gray-700 mb-4">Filters</h2>
+                    <!-- Search Filter -->
+                    <div class="mb-3">
+                        <label for="search" class="form-label text-gray-700 text-sm font-bold">Search</label>
+                        <input type="text" name="" id="search-item" class="form-control" placeholder="Enter car name or description">
+                    </div>
+                    <!-- Make Filter -->
+                    <div class="mb-3">
+                        <label for="make" class="form-label text-gray-700 text-sm font-bold">Name</label>
+                        <div class="select-arrow">
+                            <select id="make" class="form-select">
+                                <option value="any">Any</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="mahindra">Mahindra</option>
+                                <option value="isuzu">Isuzu</option>
+                                <option value="lamborghini">Lamborghini</option>
+                                <option value="rolls-royce">Rolls-Royce</option>
+                                <option value="peugeot">Peugeot</option>
+                                <option value="bmw">BMW</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Model Filter -->
+                    <div class="mb-3">
+                        <label for="model" class="form-label text-gray-700 text-sm font-bold">Model</label>
+                        <div class="select-arrow">
+                            <select id="model" class="form-select">
+                                <option value="any">Any</option>
+                                <option value="fortuner">Fortuner</option>
+                                <option value="xuv700">XUV700</option>
+                                <option value="s-cab">S-CAB</option>
+                                <option value="revuelto">Revuelto</option>
+                                <option value="huracan evo">Huracan EVO</option>
+                                <option value="cullinan">Cullinan</option>
+                                <option value="2008">2008</option>
+                                <option value="rifter">Rifter</option>
+                                <option value="208">208</option>
+                                <option value="x5">X5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Price Range Filter -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label text-gray-700 text-sm font-bold">Price Range</label>
+                        <div class="select-arrow">
+                            <select id="price" class="form-select">
+                                <option value="any">Any</option>
+                                <option value="5000">Up to £5,000</option>
+                                <option value="10000">Up to £10,000</option>
+                                <option value="15000">Up to £15,000</option>
+                                <option value="20000">Up to £20,000</option>
+                                <option value="50000">Up to £50,000</option>
+                                <option value="100000">Up to £100,000</option>
+                                <option value="500000">Up to £500,000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Year Filter -->
+                    <div class="mb-3">
+                        <label for="year" class="form-label text-gray-700 text-sm font-bold">Year</label>
+                        <div class="select-arrow">
+                            <select id="year" class="form-select">
+                                <option value="any">Any</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Car Type Filter -->
+                    <div class="mb-3">
+                        <label for="new-cars" class="form-label text-gray-700 text-sm font-bold">Car Type</label>
+                        <div class="form-check">
+                            <input type="checkbox" id="new-cars" class="form-check-input">
+                            <label for="new-cars" class="form-check-label text-sm text-gray-700">Only new cars</label>
+                        </div>
+                    </div>
+
+                    <!-- Save Search Button -->
+                    <button class="btn btn-outline-primary">
+                        Save search
+                    </button>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="results">
-                    <h2>22 Models Found</h2>
-                    <p>Select a Vehicle Below to View Incentives</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="alfa.png" alt="2016 Alfa Romeo 4C Coupe">
-                                <h3>2016 Alfa Romeo 4C Coupe</h3>
-                                <p>1 Offer Available</p>
+            <!-- Car Cards Section -->
+            <div class="col-md-8">
+                <div class="d-flex justify-content-between items-center mb-4">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+                        <button class="btn btn-outline-secondary filter-btn" data-filter="new">New</button>
+                        <button class="btn btn-outline-secondary filter-btn" data-filter="used">Used</button>
+                    </div>
+                    <div>
+                        <label for="sort" class="form-label text-gray-700 text-sm font-bold">Sort by</label>
+                        <div class="select-arrow">
+                            <select id="sort" class="form-select">
+                                <option value="relevance">Relevance</option>
+                                <option value="price-low-to-high">Price (Low to High)</option>
+                                <option value="price-high-to-low">Price (High to Low)</option>
+                                <option value="year">Year</option>
+                                <option value="mileage">Mileage</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- Car Card -->
+                    <div class="col-md-4" id="car-card">
+                        <div class="card car-card"
+                             data-make="toyota"
+                             data-model="fortuner"
+                             data-price="10000"
+                             data-year="2020"
+                             data-new="true">
+                            <img src="picture room/toyota-fortuner-legender-super.jpg" class="card-img-top car-card-image"
+                                 alt="Toyota Fortuner Legender" data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Toyota Fortuner" data-price="£9,500"
+                                 data-img="picture room/toyota-fortuner-legender-super.jpg"
+                                 data-description="<strong>🚙 Toyota Fortuner - General Overview</strong><br><br>
+                                <ul>
+                                    <li><strong>Rugged & Tough:</strong> Built on a <em>body-on-frame</em> platform, perfect for off-road adventures and rough terrains.</li>
+                                    <li><strong>Spacious & Versatile:</strong> Seats up to <em>seven passengers</em> with adjustable seating for extra cargo space.</li>
+                                    <li><strong>Unmatched Reliability:</strong> Toyota's reputation for <em>durability and low maintenance</em> ensures a worry-free experience.</li>
+                                    <li><strong>Performance & Power:</strong> Delivers a <em>smooth yet powerful</em> drive, ideal for city roads and rugged trails.</li>
+                                    <li><strong>Safety First:</strong> Features <em>advanced airbags, ABS, traction control</em>, and more for <em>maximum protection</em>.</li>
+                                    <li><strong>Luxury & Comfort:</strong> Premium interiors, <em>modern infotainment</em>, and superior ride quality for an enhanced driving experience.</li>
+                                </ul>
+                                <strong>🔥 A perfect blend of power, comfort, and reliability!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Toyota Fortuner</h5>
+                                <p class="card-text price">£10,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="white-hatchback-car-isolated-white-vector_53876.jpeg" alt="2017 Alfa Romeo 4C Coupe">
-                                <h3>2017 white-hatchback-car-isolated-white-vector_53876-</h3>
-                                <p>2 Offers Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="mahindra"
+                             data-model="xuv700"
+                             data-price="10000"
+                             data-year="2023"
+                             data-new="false">
+                            <img src="picture room/Mahindra XUV700.png" class="card-img-top car-card-image" alt="Mahindra XUV700"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Mahindra XUV700" data-price="£10,000"
+                                 data-img="picture room/Mahindra XUV700.png"
+                                 data-description="<strong>🚗 Mahindra XUV700 - Feature-Packed SUV</strong><br><br>
+                                <ul>
+                                    <li><strong>🚀 Powerful Performance:</strong> Available in <em>petrol and diesel</em> variants, offering excellent power and efficiency.</li>
+                                    <li><strong>🔹 Bold & Modern Design:</strong> A striking <em>grille, LED headlamps,</em> and aerodynamic styling give it a premium look.</li>
+                                    <li><strong>🖥️ Advanced Tech:</strong> Features a <em>dual-screen digital cockpit, ADAS (Advanced Driver Assistance Systems), and a premium sound system.</em></li>
+                                    <li><strong>🛡️ Safety First:</strong> Equipped with <em>7 airbags, ABS, ESP, and 5-star Global NCAP safety rating</em>.</li>
+                                    <li><strong>🛋️ Luxurious Comfort:</strong> Spacious interiors with <em>ventilated seats, panoramic sunroof,</em> and high-quality materials.</li>
+                                    <li><strong>📡 Connectivity:</strong> Supports <em>Apple CarPlay, Android Auto, and AI-powered voice commands</em>.</li>
+                                </ul>
+                                <strong>🔥 Experience luxury, power, and technology in one dynamic SUV!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Mahindra XUV700</h5>
+                                <p class="card-text price">£10,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="Maruti Suzuki Suzuki Swift Car.jpg" alt="Maruti Suzuki Suzuki Swift Car ">
-                                <h3>2016 Maruti Suzuki Suzuki Swift Car </h3>
-                                <p>1 Offer Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="isuzu"
+                             data-model="s-cab"
+                             data-price="10000"
+                             data-year="2022"
+                             data-new="false">
+                            <img src="picture room/Isuzu S-CAB.jpeg" class="card-img-top car-card-image" alt="Isuzu S-CAB"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Isuzu S-CAB" data-price="£10,000"
+                                 data-img="picture room/Isuzu S-CAB.jpeg"
+                                 data-description="<strong>🚛 Isuzu S-CAB – Tough & Versatile Pickup</strong><br><br>
+                                <ul>
+                                    <li><strong>🔋 Engine:</strong> 2.5L Turbo Diesel with excellent fuel efficiency.</li>
+                                    <li><strong>⚙️ Transmission:</strong> 5-speed manual for optimal control.</li>
+                                    <li><strong>🛻 Payload Capacity:</strong> Designed for carrying heavy loads with ease.</li>
+                                    <li><strong>🛡️ Safety:</strong> ABS with EBD, crumple zones, and airbags for driver safety.</li>
+                                    <li><strong>📡 Features:</strong> Power steering, comfortable cabin, and infotainment system.</li>
+                                    <li><strong>🌍 Ideal For:</strong> Commercial use, off-road adventures, and daily transport.</li>
+                                </ul>
+                                <strong>🔥 Built for power, durability, and reliability!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Isuzu S-CAB</h5>
+                                <p class="card-text price">£10,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="2018-alfa-romeo-giulia-2017.png" alt="2017 Alfa Romeo Giulia Sedan">
-                                <h3>2017 Alfa Romeo Giulia Sedan</h3>
-                                <p>6 Offers Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="lamborghini"
+                             data-model="revuelto"
+                             data-price="300000"
+                             data-year="2024"
+                             data-new="true">
+                            <img src="picture room/Lamborghini Revuelto.jpg" class="card-img-top car-card-image" alt="Lamborghini Revuelto"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Lamborghini Revuelto" data-price="£300,000"
+                                 data-img="picture room/Lamborghini Revuelto.jpg"
+                                 data-description="<strong>🏎️ Lamborghini Revuelto – The Ultimate Hybrid Supercar</strong><br><br>
+                                <ul>
+                                    <li><strong>🔋 Powertrain:</strong> 6.5L V12 hybrid engine with three electric motors.</li>
+                                    <li><strong>⚡ Horsepower:</strong> Over 1,000 HP for breathtaking performance.</li>
+                                    <li><strong>🚀 Acceleration:</strong> 0-60 mph in under 2.5 seconds.</li>
+                                    <li><strong>🏁 Transmission:</strong> 8-speed dual-clutch for lightning-fast shifts.</li>
+                                    <li><strong>🛡️ Aerodynamics:</strong> Active aero and sleek design for maximum downforce.</li>
+                                    <li><strong>🖥️ Interior:</strong> Advanced digital cockpit with luxury materials.</li>
+                                    <li><strong>🌍 Hybrid Efficiency:</strong> Combines raw power with improved fuel efficiency.</li>
+                                </ul>
+                                <strong>🔥 Experience the future of high-performance driving!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Lamborghini Revuelto</h5>
+                                <p class="card-text price">£300,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="chry.jpeg" alt="2016 Chrysler 200 Sedan">
-                                <h3>2016 Chrysler 200 Sedan</h3>
-                                <p>16 Offers Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="lamborghini"
+                             data-model="huracan evo"
+                             data-price="250000"
+                             data-year="2023"
+                             data-new="false">
+                            <img src="picture room/Lamborghini Huracan EVO.jpg" class="card-img-top car-card-image" alt="Lamborghini Huracan EVO"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Lamborghini Huracan EVO" data-price="£250,000"
+                                 data-img="picture room/Lamborghini Huracan EVO.jpg"
+                                 data-description="<strong>🏎️ Lamborghini Huracán EVO – The Evolution of Speed</strong><br><br>
+                                <ul>
+                                    <li><strong>🔋 Engine:</strong> 5.2L V10 producing 631 HP.</li>
+                                    <li><strong>⚡ Acceleration:</strong> 0-60 mph in just 2.9 seconds.</li>
+                                    <li><strong>🏁 Transmission:</strong> 7-speed dual-clutch automatic for lightning-fast shifts.</li>
+                                    <li><strong>🛡️ Aerodynamics:</strong> Enhanced ALA (Aerodinamica Lamborghini Attiva) for superior handling.</li>
+                                    <li><strong>🎮 Driving Modes:</strong> STRADA, SPORT, CORSA for a customizable driving experience.</li>
+                                    <li><strong>🖥️ Interior:</strong> Futuristic 8.4-inch touchscreen with Apple CarPlay and advanced telemetry.</li>
+                                    <li><strong>🚀 Exhaust Sound:</strong> A roaring V10 symphony for an exhilarating experience.</li>
+                                </ul>
+                                <strong>🔥 The perfect blend of raw power and cutting-edge technology!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Lamborghini Huracán EVO</h5>
+                                <p class="card-text price">£250,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="other ch.png" alt="2017 Chrysler 200 Sedan">
-                                <h3>2017 Chrysler 200 Sedan</h3>
-                                <p>10 Offers Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="rolls-royce"
+                             data-model="cullinan"
+                             data-price="350000"
+                             data-year="2022"
+                             data-new="false">
+                            <img src="picture room/Rolls-Royce Cullinan.jpg" class="card-img-top car-card-image" alt="Rolls-Royce Cullinan"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Rolls-Royce Cullinan" data-price="£350,000"
+                                 data-img="picture room/Rolls-Royce Cullinan.jpg"
+                                 data-description="<strong>🏎️ Rolls-Royce Cullinan – The Ultimate Luxury SUV</strong><br><br>
+                                <ul>
+                                    <li><strong>💎 Design:</strong> Unparalleled craftsmanship with premium materials, hand-finished interiors, and bold exterior lines.</li>
+                                    <li><strong>🚗 Engine:</strong> 6.75L twin-turbo V12 engine delivering 563 HP for an effortless and smooth drive.</li>
+                                    <li><strong>⚡ Performance:</strong> Impressive 0-60 mph in 4.6 seconds, combining luxury and speed.</li>
+                                    <li><strong>🛋️ Interior:</strong> Spacious cabin with exquisite leather seats, advanced infotainment system, and refined wood accents.</li>
+                                    <li><strong>🛡️ Comfort:</strong> Features such as a premium sound system, ambient lighting, and adjustable seating for maximum comfort.</li>
+                                    <li><strong>🌍 Off-Road Capability:</strong> Designed for both luxury and off-road versatility, ideal for various terrains.</li>
+                                </ul>
+                                <strong>🌟 The pinnacle of luxury and sophistication, perfect for those who demand the best!</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Rolls-Royce Cullinan</h5>
+                                <p class="card-text">£350,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="next ch.jpg" alt="2018 Chrysler 300 Sedan">
-                                <h3>2018 Chrysler 300 Sedan</h3>
-                                <p>1 Offer Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="peugeot"
+                             data-model="2008"
+                             data-price="25000"
+                             data-year="2020"
+                             data-new="true">
+                            <img src="picture room/Peugeot 2008.jpeg" class="card-img-top car-card-image" alt="Peugeot 2008"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Peugeot 2008"
+                                 data-price="£25,000"
+                                 data-img="picture room/Peugeot 2008.jpeg"
+                                 data-description="A stylish and compact SUV perfect for city driving with advanced tech features.">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Peugeot 2008</h5>
+                                <p class="card-text">£25,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                 <img src="Mahindra-XEV-9e-041120241305.jpg" alt="2017 Chrysler 300 Sedan">
-                                <h3>2017 Chrysler 300 Sedan</h3>
-                                <p>1 Offer Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="peugeot"
+                             data-model="rifter"
+                             data-price="20000"
+                             data-year="2021"
+                             data-new="false">
+                            <img src="picture room/Peugeot Rifter 1.2 PureTech GT Line.jpg" class="card-img-top car-card-image" alt="Peugeot Rifter 1.2 PureTech GT Line"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Peugeot Rifter 1.2 PureTech GT Line" data-price="£20,000"
+                                 data-img="picture room/Peugeot Rifter 1.2 PureTech GT Line.jpg"
+                                 data-description="The Peugeot Rifter 1.2 PureTech GT Line is an adventurous and stylish MPV, designed for comfort with a spacious interior, advanced safety features, and efficient fuel economy. Perfect for families or those who need versatility on the road.">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Peugeot Rifter 1.2 PureTech GT Line</h5>
+                                <p class="card-text">£20,000</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="car-item">
-                                <img src="Kia-EV9-270820241144.jpg" alt="2016 Chrysler 300C Sedan">
-                                <h3>2016 Chrysler 300C Sedan</h3>
-                                <p>1 Offer Available</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="peugeot"
+                             data-model="208"
+                             data-price="18000"
+                             data-year="2022"
+                             data-new="false">
+                            <img src="picture room/Peugeot 208 1.2 PureTech GP Line.jpg" class="card-img-top car-card-image" alt="Peugeot 208 1.2 PureTech GP Line"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Peugeot 208"
+                                 data-price="£18,000"
+                                 data-img="picture room/Peugeot 208 1.2 PureTech GP Line.jpg"
+                                 data-description="The Peugeot 208 1.2 PureTech GP Line offers a dynamic driving experience with a sporty design and a high-quality interior. Powered by an efficient 1.2-litre engine, it delivers impressive fuel economy and smooth performance. This compact hatchback is packed with advanced tech, including touchscreen infotainment and safety features like lane-keeping assist. Ideal for urban commutes or weekend getaways, the Peugeot 208 provides the perfect blend of style, performance, and practicality.">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Peugeot 208</h5>
+                                <p class="card-text">£18,000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New BMW X5 Card -->
+                    <div class="col-md-4">
+                        <div class="card car-card"
+                             data-make="bmw"
+                             data-model="x5"
+                             data-price="45000"
+                             data-year="2021"
+                             data-new="false">
+                            <img src="picture room/BMW X5 xDrive40i.jpeg" class="card-img-top car-card-image" alt="BMW X5"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="BMW X5 xDrive40i"
+                                 data-price="£45,000"
+                                 data-img="picture room/BMW X5 xDrive40i.jpeg"
+                                 data-description="<strong>🚗 BMW X5 xDrive40i - Luxury SUV</strong><br><br>
+                                <ul>
+                                    <li><strong>Engine:</strong> 3.0L Turbocharged I6 (335 HP)</li>
+                                    <li><strong>Transmission:</strong> 8-speed automatic</li>
+                                    <li><strong>Drivetrain:</strong> xDrive all-wheel drive</li>
+                                    <li><strong>Features:</strong> Panoramic sunroof, leather seats, Harman Kardon sound system</li>
+                                    <li><strong>Safety:</strong> Lane departure warning, adaptive cruise control</li>
+                                    <li><strong>MPG:</strong> 21 city / 26 highway</li>
+                                </ul>
+                                <strong>🌟 Premium luxury with sporty performance</strong>">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">BMW X5 xDrive40i</h5>
+                                <p class="card-text">£45,000</p>
                             </div>
                         </div>
                     </div>
@@ -218,8 +496,180 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Modal Section -->
+    <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carModalLabel">Car Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="carModalImage" class="img-fluid" src="" alt="Car Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h5 id="carModalName">Car Name</h5>
+                            <p id="carModalPrice">Car Price</p>
+                            <p id="carModalDescription">Car Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Track current filter state
+        let currentFilter = "all";
+        
+        // Modal data population
+        $('#carModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var name = button.data('name');
+            var price = button.data('price');
+            var img = button.data('img');
+            var description = button.data('description');
+            var modal = $(this);
+            modal.find('#carModalName').text(name);
+            modal.find('#carModalPrice').text(price);
+            modal.find('#carModalImage').attr('src', img);
+            modal.find('#carModalDescription').html(description);
+        });
+
+        // Initialize filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update button styles
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('btn-primary');
+                    b.classList.add('btn-outline-secondary');
+                });
+                this.classList.remove('btn-outline-secondary');
+                this.classList.add('btn-primary');
+                
+                // Set current filter
+                currentFilter = this.dataset.filter;
+                
+                // Apply filters
+                filterCars();
+            });
+        });
+
+        // Set up event listeners for all filters
+        document.getElementById('make').addEventListener('change', filterCars);
+        document.getElementById('model').addEventListener('change', filterCars);
+        document.getElementById('price').addEventListener('change', filterCars);
+        document.getElementById('year').addEventListener('change', filterCars);
+        document.getElementById('new-cars').addEventListener('change', filterCars);
+        document.getElementById('search-item').addEventListener('keyup', filterCars);
+        document.getElementById('sort').addEventListener('change', sortCars);
+
+        // Main filter function
+        function filterCars() {
+            const make = document.getElementById('make').value.toLowerCase();
+            const model = document.getElementById('model').value.toLowerCase();
+            const price = parseInt(document.getElementById('price').value) || 0;
+            const year = parseInt(document.getElementById('year').value) || 0;
+            const isNewCar = document.getElementById('new-cars').checked;
+            const searchText = document.getElementById('search-item').value.toLowerCase();
+
+            const carCards = document.querySelectorAll('.car-card');
+
+            carCards.forEach(card => {
+                const cardMake = card.getAttribute('data-make').toLowerCase();
+                const cardModel = card.getAttribute('data-model').toLowerCase();
+                const cardPrice = parseInt(card.getAttribute('data-price')) || 0;
+                const cardYear = parseInt(card.getAttribute('data-year')) || 0;
+                const cardNew = card.getAttribute('data-new') === 'true';
+                const cardName = card.querySelector('.card-title').textContent.toLowerCase();
+                
+                // Get description text without HTML tags
+                const descriptionHTML = card.getAttribute('data-description');
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = descriptionHTML;
+                const cardDescription = tempElement.textContent.toLowerCase();
+
+                let showCard = true;
+
+                // Apply All/New/Used filter
+                if (currentFilter === "new" && !cardNew) {
+                    showCard = false;
+                } else if (currentFilter === "used" && cardNew) {
+                    showCard = false;
+                }
+
+                // Apply other filters if card is still visible
+                if (showCard && make !== 'any' && cardMake !== make) {
+                    showCard = false;
+                }
+
+                if (showCard && model !== 'any' && cardModel !== model) {
+                    showCard = false;
+                }
+
+                if (showCard && price > 0 && cardPrice > price) {
+                    showCard = false;
+                }
+
+                if (showCard && year > 0 && cardYear !== year) {
+                    showCard = false;
+                }
+
+                if (showCard && isNewCar && !cardNew) {
+                    showCard = false;
+                }
+
+                if (showCard && searchText && !cardName.includes(searchText) && !cardDescription.includes(searchText)) {
+                    showCard = false;
+                }
+
+                card.style.display = showCard ? 'flex' : 'none';
+            });
+        }
+
+        // Sort function
+        function sortCars() {
+            const sortValue = document.getElementById('sort').value;
+            const container = document.querySelector('.row.g-4');
+            const cards = Array.from(document.querySelectorAll('.car-card'));
+            
+            // Get the parent elements of each card
+            const cardContainers = Array.from(document.querySelectorAll('.col-md-4'));
+            
+            // Sort the card containers based on their card data
+            cardContainers.sort((a, b) => {
+                const cardA = a.querySelector('.car-card');
+                const cardB = b.querySelector('.car-card');
+                
+                if (!cardA || !cardB) return 0;
+                
+                switch(sortValue) {
+                    case 'price-low-to-high':
+                        return (parseInt(cardA.getAttribute('data-price')) || 0) - (parseInt(cardB.getAttribute('data-price')) || 0);
+                    case 'price-high-to-low':
+                        return (parseInt(cardB.getAttribute('data-price')) || 0) - (parseInt(cardA.getAttribute('data-price')) || 0);
+                    case 'year':
+                        return (parseInt(cardB.getAttribute('data-year')) || 0) - (parseInt(cardA.getAttribute('data-year')) || 0);
+                    case 'mileage':
+                        // You would need to add mileage data attributes to your cards for this to work
+                        return 0;
+                    default: // 'relevance'
+                        return 0;
+                }
+            });
+            
+            // Re-append the sorted cards to the container
+            cardContainers.forEach(container => {
+                document.querySelector('.row.g-4').appendChild(container);
+            });
+        }
+
+        // Initialize the page
+        filterCars();
+    </script>
 </body>
 </html>

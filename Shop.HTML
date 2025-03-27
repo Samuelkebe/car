@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .shop-header {
+            background-image: linear-gradient(to right, #000000, hsl(180, 87%, 40%));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .car-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .car-card-body {
+            padding: 15px;
+        }
+        .car-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .car-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0" style="font-size: 24px;">
+                <strong>Phoenix Motors</strong>
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="car.html">
+                        <strong>Home</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventory.html">
+                        <strong>Inventory</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Services.html">
+                        <strong>Services</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Blog.html">
+                        <strong>Blog</strong>
+                    </a>
+                </li>
+                <li class="nav-item Active" style="background-color: #0faabe;">
+                    <a class="nav-link" href="Shop.HTML">
+                        <strong>Shop</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.HTML">
+                        <strong>Contact</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="shop-header">
+        <div class="container">
+            <h1>Car Shop</h1>
+            <p>Explore Our Selection of Quality Vehicles</p>
+        </div>
+    </header>
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="car-card">
+                    <img src="picture room/Lamborghini Revuelto.jpg" alt="Lamborghini Revuelto">
+                    <div class="car-card-body">
+                        <h2 class="car-title">Lamborghini Aventador</h2>
+                        <p class="car-price">$393,695</p>
+                        <p class="car-description">The Lamborghini Aventador is a high-performance sports car that boasts a powerful V12 engine, aggressive styling, and exceptional driving dynamics.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carDetailsModal">View Details</button>
+                        <button class="btn btn-secondary" onclick="addToCart('Lamborghini Aventador', 393695)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="car-card">
+                    <img src="picture room/ford-mustang-colombia.jpg" alt="Car 2">
+                    <div class="car-card-body">
+                        <h2 class="car-title">Ford Mustang</h2>
+                        <p class="car-price">$27,205</p>
+                        <p class="car-description">The Ford Mustang is an iconic American muscle car known for its powerful engine options, classic design, and exhilarating driving experience.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carDetailsModal">View Details</button>
+                        <button class="btn btn-secondary" onclick="addToCart('Ford Mustang', 27205)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="car-card">
+                    <img src="picture room/Porsche 911.jpg" alt="Car 3">
+                    <div class="car-card-body">
+                        <h2 class="car-title">Porsche 911</h2>
+                        <p class="car-price">$101,200</p>
+                        <p class="car-description">The Porsche 911 is a legendary sports car renowned for its exceptional handling, timeless design, and exhilarating performance.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carDetailsModal">View Details</button>
+                        <button class="btn btn-secondary" onclick="addToCart('Porsche 911', 101200)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="carDetailsModal" tabindex="-1" aria-labelledby="carDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carDetailsModalLabel">Car Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carDetailsContent">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const carDetails = {
+            "Lamborghini Aventador": {
+                name: "Lamborghini Aventador",
+                price: 393695,
+                description: "The Lamborghini Aventador is a high-performance sports car that boasts a powerful V12 engine, aggressive styling, and exceptional driving dynamics.",
+                image: "picture room/Lamborghini Aventador.jpg",
+                engine: "6.5L V12",
+                horsepower: "760 hp",
+                topSpeed: "220 mph",
+            },
+            "Ford Mustang": {
+                name: "Ford Mustang",
+                price: 27205,
+                description: "The Ford Mustang is an iconic American muscle car known for its powerful engine options, classic design, and exhilarating driving experience.",
+                image: "picture room/Ford Mustang.jpg",
+                engine: "2.3L EcoBoost / 5.0L V8",
+                horsepower: "310 hp / 460 hp",
+                topSpeed: "155 mph / 168 mph",
+            },
+            "Porsche 911": {
+                name: "Porsche 911",
+                price: 101200,
+                description: "The Porsche 911 is a legendary sports car renowned for its exceptional handling, timeless design, and exhilarating performance.",
+                image: "picture room/Porsche 911.jpg",
+                engine: "3.0L Twin-Turbo Flat-6",
+                horsepower: "379 hp",
+                topSpeed: "182 mph",
+            },
+        };
+
+        let cart = [];
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'));
+        }
+
+        function addToCart(carName, price) {
+            cart.push({ name: carName, price: price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${carName} has been added to your cart!`);
+        }
+
+        const carDetailsModal = document.getElementById('carDetailsModal');
+        carDetailsModal.addEventListener('show.bs.modal', (event) => {
+            const button = event.relatedTarget;
+            const carName = button.parentElement.querySelector('.car-title').innerText;
+            const car = carDetails[carName];
+
+            const modalBody = document.getElementById('carDetailsContent');
+            modalBody.innerHTML = `
+                <img src="${car.image}" alt="${car.name}" class="img-fluid mb-3">
+                <h2>${car.name}</h2>
+                <p class="car-price">$${car.price}</p>
+                <p>${car.description}</p>
+                <p><strong>Engine:</strong> ${car.engine}</p>
+                <p><strong>Horsepower:</strong> ${car.horsepower}</p>
+                <p><strong>Top Speed:</strong> ${car.topSpeed}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
