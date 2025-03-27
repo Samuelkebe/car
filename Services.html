@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motors - Our Services</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+<style>
+  /* Custom styles for the services page */
+  .service-block {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Enable flexbox for layout */
+    align-items: center; /* Vertically center content */
+    text-align: left;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+  }
+
+  .service-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .service-block i {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #007bff;
+  }
+
+  .service-block h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+
+  .service-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .service-block .btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .service-block .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+
+  .section-title p {
+    font-size: 18px;
+    color: #7f8c8d;
+  }
+  .header-section {
+        background: linear-gradient(to right, #003366, #007bff);
+        padding: 20px;
+        text-align: center;
+    }
+    .header-section h1{
+        font-size: 2.5em;
+        color: #ffffff;
+    }
+    .navbar {
+        font-weight: bold;
+    }
+    .navbar-brand {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        font-weight: bold;
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    .navbar-brand h1 {
+        font-weight: bold;
+        font-size: 24px;
+        margin: 0;
+        color: #003366;
+    }
+    .service-block img {
+        max-width: 60%; /* Adjust as needed */
+        height: auto;
+        border-radius: 10px; /* Optional: Add rounded corners to images */
+        margin-left: 20px; /* Add some space between text and image */
+    }
+    .service-content {
+        flex: 1; /* Allow text content to take up remaining space */
+    }
+    /* Adjust for small screens */
+    @media (max-width: 768px) {
+      .service-block {
+        flex-direction: column;
+        text-align: center;
+      }
+      .service-block img {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-lg-6 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
+        </a>        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="car.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventory.html">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="Services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cart</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#" id="postCarLink">Post Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header-section">
+        <h1>Our Services</h1>
+    </div>
+
+    <div class="container py-5">
+        <div class="section-title">
+            <h2>What We Offer</h2>
+            <p>Explore our wide range of services designed to keep your vehicle in top condition.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="service-block">
+                    <div class="service-content">
+                        <i class="fas fa-car"></i>
+                        <h3>Car Wash</h3>
+                        <p>We offer top-notch car wash services to make your car shine like new. Our detailing experts use the latest techniques and products.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                    <img src="carwash.jpg" alt="Car Wash">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="service-block">
+                    <div class="service-content">
+                        <i class="fas fa-tools"></i>
+                        <h3>Car Spare Parts</h3>
+                        <p>Find genuine spare parts for your car at competitive prices. We have a wide selection of parts for all makes and models.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                    <img src="parts.jpeg" alt="Car Spare Parts">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="service-block">
+                    <div class="service-content">
+                        <i class="fas fa-oil-can"></i>
+                        <h3>Oil Change</h3>
+                        <p>Regular oil changes are crucial for your car's health. Our certified technicians provide fast and reliable oil change services.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                    <img src="oil.jpg" alt="Oil Change">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="service-block">
+                    <div class="service-content">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Vehicle Diagnostics</h3>
+                        <p>Our state-of-the-art diagnostic tools can identify any issues with your vehicle. Get a comprehensive check-up to ensure optimal performance.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                    <img src="vehicle.jpg" alt="Vehicle Diagnostics">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Motors. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+             $('#postCarLink').click(function(e) {
+                e.preventDefault();
+                $('#postCarModal').modal('show');
+            });
+        });
+    </script>
+</body>
+</html>

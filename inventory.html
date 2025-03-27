@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Your Inventory Page CSS Here */
+        .navbar {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .navbar-brand img {
+            font-weight: bold;
+            max-height: 50px; /* Reduced height to match the other page */
+            margin-right: 10px;
+        }
+
+        .navbar-brand h1{
+            font-size: 24px;
+            color: #003366;
+            margin: 0;
+        }
+
+        .inventory-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .filters {
+            width: 20%;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .filters h2 {
+            margin-bottom: 10px;
+        }
+
+        .filters ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .filters li {
+            margin-bottom: 5px;
+        }
+
+        .results {
+            width: 80%;
+            padding: 20px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .car-item {
+            text-align: center;
+        }
+
+        .car-item img {
+            width: 200px; /* Adjust as needed */
+            height: 150px; /* Adjust as needed */
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
+        </a>        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="car.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="inventory.html">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filters">
+                    <h2>Offer Types</h2>
+                    <ul>
+                        <li>Finance Offers</li>
+                        <li>Cash and Finance</li>
+                        <li>Cash Offers</li>
+                        <li>Lease Offers</li>
+                    </ul>
+                    <h2>Year</h2>
+                    <ul>
+                        <li>2016</li>
+                        <li>2017</li>
+                    </ul>
+                    <h2>Make</h2>
+                    <ul>
+                        <li>Alfa Romeo</li>
+                        <li>Chrysler</li>
+                        <li>Fiat</li>
+                    </ul>
+                    <h2>Body Style</h2>
+                    <ul>
+                        <li>Convertible</li>
+                        <li>Coupe</li>
+                        <li>Hatchback</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="results">
+                    <h2>22 Models Found</h2>
+                    <p>Select a Vehicle Below to View Incentives</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="alfa.png" alt="2016 Alfa Romeo 4C Coupe">
+                                <h3>2016 Alfa Romeo 4C Coupe</h3>
+                                <p>1 Offer Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="white-hatchback-car-isolated-white-vector_53876.jpeg" alt="2017 Alfa Romeo 4C Coupe">
+                                <h3>2017 white-hatchback-car-isolated-white-vector_53876-</h3>
+                                <p>2 Offers Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="Maruti Suzuki Suzuki Swift Car.jpg" alt="Maruti Suzuki Suzuki Swift Car ">
+                                <h3>2016 Maruti Suzuki Suzuki Swift Car </h3>
+                                <p>1 Offer Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="2018-alfa-romeo-giulia-2017.png" alt="2017 Alfa Romeo Giulia Sedan">
+                                <h3>2017 Alfa Romeo Giulia Sedan</h3>
+                                <p>6 Offers Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="chry.jpeg" alt="2016 Chrysler 200 Sedan">
+                                <h3>2016 Chrysler 200 Sedan</h3>
+                                <p>16 Offers Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="other ch.png" alt="2017 Chrysler 200 Sedan">
+                                <h3>2017 Chrysler 200 Sedan</h3>
+                                <p>10 Offers Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="next ch.jpg" alt="2018 Chrysler 300 Sedan">
+                                <h3>2018 Chrysler 300 Sedan</h3>
+                                <p>1 Offer Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                 <img src="Mahindra-XEV-9e-041120241305.jpg" alt="2017 Chrysler 300 Sedan">
+                                <h3>2017 Chrysler 300 Sedan</h3>
+                                <p>1 Offer Available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="car-item">
+                                <img src="Kia-EV9-270820241144.jpg" alt="2016 Chrysler 300C Sedan">
+                                <h3>2016 Chrysler 300C Sedan</h3>
+                                <p>1 Offer Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
