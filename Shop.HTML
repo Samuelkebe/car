@@ -115,6 +115,34 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <button class="btn btn-link nav-link" id="darkModeToggle">
+                      <i class="fas fa-moon"></i>
+                    </button>
+                  </li>
+                  
+                  <script>
+                    // Dark mode toggle
+                    document.getElementById('darkModeToggle').addEventListener('click', function() {
+                      document.body.classList.toggle('dark-mode');
+                      this.querySelector('i').classList.toggle('fa-sun');
+                    });
+                  </script>
+                  
+                  <style>
+                    .dark-mode {
+                      background-color: #121212;
+                      color: #f8f9fa;
+                    }
+                    .dark-mode .card {
+                      background-color: #1e1e1e;
+                      color: #f8f9fa;
+                    }
+                    .dark-mode .modal-content {
+                      background-color: #1e1e1e;
+                      color: #f8f9fa;
+                    }
+                  </style>
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-search"></i>
                     </a>

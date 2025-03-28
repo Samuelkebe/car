@@ -8,6 +8,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .read-more-btn:hover {
+            background-color: #0d96a8 !important;
+        }
+
+        /* Smooth scroll behavior for entire site */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Button press effect */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Fade-in animation for cards */
+        .card {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         .blog-header {
             background-image: linear-gradient(to right, #000000, hsl(180, 87%, 40%));
             color: white;
@@ -24,10 +64,57 @@
             padding: 10px 0;
             text-align: center;
         }
+
+        .modal-backdrop {
+            z-index: 1040 !important;
+        }
+
+        .modal {
+            z-index: 1050 !important;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f8f9fa !important;
+        }
+
+        .dark-mode .blog-header,
+        .dark-mode .blog-footer,
+        .dark-mode .modal-content {
+            background-color: #1e1e1e;
+            color: #f8f9fa;
+        }
+
+        .dark-mode .text-muted {
+            color: #aaa !important;
+        }
+
+        .body.modal-open {
+            overflow: auto;
+            padding-right: 0 !important;
+        }
+
+        .read-more-btn {
+            background-color: #0faabe;
+            border: none;
+        }
     </style>
 </head>
 
 <body>
+    <div class="progress fixed-top" style="height: 4px; z-index: 1000;">
+        <div id="readingProgress" class="progress-bar" style="background-color: #0faabe;" role="progressbar"></div>
+    </div>
+
+    <script>
+        // Reading progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+    </script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
@@ -72,6 +159,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <button class="btn btn-link nav-link" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-search"></i>
                     </a>
@@ -92,9 +185,13 @@
                 <div class="card">
                     <img src="picture room/the-future-of-electric-vehicles.jpg" class="card-img-top" alt="Car 1">
                     <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted">5 min read</small>
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                        </div>
                         <h5 class="card-title">The Future of Electric Cars</h5>
-                        <p class="card-text">Electric cars are rapidly transforming the automotive industry. In this article, we
-                            explore what the future holds for electric vehicle technology.</p>
+                        <p class="card-text">Electric cars are rapidly transforming the automotive industry. In this article,
+                            we explore what the future holds for electric vehicle technology.</p>
                         <button type="button" class="btn btn-primary read-more-btn" data-bs-toggle="modal"
                             data-bs-target="#blogPost1Modal">
                             Read More
@@ -104,11 +201,18 @@
             </div>
             <div class="col-md-4 blog-post">
                 <div class="card">
-                    <img src="picture room/top 10.jpg" class="card-img-top" alt="Car 2">
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-muted">5 min read</small>
+                        <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                    </div>
+                    <div class="position-relative">
+                        <img src="picture room/top 10.jpg" class="card-img-top" alt="Car 2">
+                        <span class="position-absolute top-0 start-0 badge bg-danger m-2">Featured</span>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Top 10 Sports Cars of 2025</h5>
-                        <p class="card-text">From speed to style, we list the top 10 sports cars that are sure to turn heads
-                            in 2025.</p>
+                        <p class="card-text">From speed to style, we list the top 10 sports cars that are sure to turn heads in
+                            2025.</p>
                         <button type="button" class="btn btn-primary read-more-btn" data-bs-toggle="modal"
                             data-bs-target="#blogPost2Modal">
                             Read More
@@ -118,6 +222,10 @@
             </div>
             <div class="col-md-4 blog-post">
                 <div class="card">
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-muted">5 min read</small>
+                        <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                    </div>
                     <img src="picture room/car-maintenance-tips-scaled-1170x635-1.jpg" class="card-img-top" alt="Car 3">
                     <div class="card-body">
                         <h5 class="card-title">Car Maintenance Tips for Beginners</h5>
@@ -130,11 +238,19 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+                <small class="text-muted">5 min read</small>
+                <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+            </div>
             <div class="col-md-4 blog-post">
                 <div class="card">
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-muted">5 min read</small>
+                        <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                    </div>
                     <img src="picture room/Lamborghini Revuelto.jpg" class="card-img-top" alt="Car 4">
                     <div class="card-body">
-                        <h5 class="card-title">Lamborghini Announces Arrival of New Supercar Model</h5>
+                        <h5 class="modal-title" id="blogPost4ModalLabel">Lamborghini Announces New Supercar Model</h5>
                         <p class="card-text">Lamborghini, the renowned Italian luxury sports car manufacturer, has officially
                             announced the arrival of its latest supercar model.</p>
                         <button type="button" class="btn btn-primary read-more-btn" data-bs-toggle="modal"
@@ -146,7 +262,12 @@
             </div>
             <div class="col-md-4 blog-post">
                 <div class="card">
-                    <img src="picture room/Trump Announces 25% Tariff on Auto Imports.png" class="card-img-top" alt="Car 5">
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-muted">5 min read</small>
+                        <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                    </div>
+                    <img src="picture room/Trump Announces 25% Tariff on Auto Imports.png" class="img-fluid mb-3"
+                        alt="Car 5">
                     <div class="card-body">
                         <h5 class="card-title">Trump Announces 25% Tariffs on Foreign-Made Cars!</h5>
                         <p class="card-text">In a shocking announcement, President Donald Trump has declared a 25% tariff on all
@@ -162,7 +283,7 @@
 
         <div class="modal fade" id="blogPost1Modal" tabindex="-1" aria-labelledby="blogPost1ModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="blogPost1ModalLabel">The Future of Electric Cars</h5>
@@ -170,14 +291,27 @@
                     </div>
                     <div class="modal-body">
                         <img src="picture room/the-future-of-electric-vehicles.jpg" class="img-fluid mb-3" alt="Car 1">
-                        <p>Electric vehicles are transforming the automotive industry. With advancements in battery technology,
-                            charging infrastructure, and vehicle design, the future of electric cars looks promising. Expect
+                        <p>Electric vehicles are transforming the automotive industry. With advancements in battery
+                            technology,
+                            charging infrastructure, and vehicle design, the future of electric cars looks promising.
+                            Expect
                             to see longer ranges, faster charging times, and a wider variety of models. Governments
                             worldwide are also pushing for stricter emissions standards, further accelerating the shift
                             towards electric mobility. In the coming years, electric cars are expected to become more
                             affordable and accessible to the average consumer. The integration of smart technology will
-                            also enhance the driving experience, making electric cars not only eco-friendly but also highly
+                            also enhance the driving experience, making electric cars not only eco-friendly but also
+                            highly
                             convenient.</p>
+                        <div class="d-flex justify-content-start gap-2 mb-3">
+                            <button class="btn btn-sm btn-outline-primary"><i class="fab fa-facebook-f"></i></button>
+                            <button class="btn btn-sm btn-outline-info"><i class="fab fa-twitter"></i></button>
+                            <button class="btn btn-sm btn-outline-danger"><i class="fab fa-instagram"></i></button>
+                            <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-link"></i></button>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-4 text-muted">
+                            <small>Published: March 27, 2025</small>
+                            <small>By: Automotive Expert</small>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -196,7 +330,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="ratio ratio-16x9 mb-3">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/[ACTUAL_VIDEO_ID]"
+                                allowfullscreen></iframe>
                         </div>
                         <p>The 2025 lineup of sports cars is set to redefine performance and style. From sleek designs to
                             powerful engines, these cars are built to impress. The top 10 list includes models from leading
@@ -223,13 +358,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="picture room/car-maintenance-tips-scaled-1170x635-1.jpg" class="img-fluid mb-3" alt="Car 3">
+                        <img src="picture room/car-maintenance-tips-scaled-1170x635-1.jpg" class="img-fluid mb-3"
+                            alt="Car 3">
                         <p>Maintaining your car is crucial for its longevity and performance. For beginners, it's essential
-                            to start with the basics. Regular oil changes, tire rotations, and fluid checks are fundamental.
+                            to start with the basics. Regular oil changes, tire rotations, and fluid checks are
+                            fundamental.
                             Understanding your car's manual is the first step. Learn how to check tire pressure, inspect
                             fluid levels, and replace air filters. Regular washing and waxing can also protect your car's
-                            exterior. Additionally, familiarize yourself with warning lights on the dashboard. Knowing what
-                            they mean can prevent costly repairs. Investing in basic tools and learning simple maintenance
+                            exterior. Additionally, familiarize yourself with warning lights on the dashboard. Knowing
+                            what
+                            they mean can prevent costly repairs. Investing in basic tools and learning simple
+                            maintenance
                             tasks can save you time and money. Remember, regular maintenance is not just about keeping
                             your car running; it's also about ensuring your safety on the road.</p>
                     </div>
@@ -252,20 +391,27 @@
                         <p>Lamborghini Announces Arrival of New Supercar Model
 
                             Addis Ababa, Ethiopia - March 27, 2025 - Lamborghini, the renowned Italian luxury sports car
-                            manufacturer, has officially announced the arrival of its latest supercar model. The new model,
-                            which promises to push the boundaries of performance and design, is set to make its debut later
+                            manufacturer, has officially announced the arrival of its latest supercar model. The new
+                            model,
+                            which promises to push the boundaries of performance and design, is set to make its debut
+                            later
                             this year.
 
-                            The announcement has generated significant excitement among car enthusiasts and industry experts
-                            alike. Lamborghini's CEO, Stephan Winkelmann, stated, "We are thrilled to introduce our newest
-                            supercar, which embodies the pinnacle of Lamborghini's innovation and craftsmanship. This model
+                            The announcement has generated significant excitement among car enthusiasts and industry
+                            experts
+                            alike. Lamborghini's CEO, Stephan Winkelmann, stated, "We are thrilled to introduce our
+                            newest
+                            supercar, which embodies the pinnacle of Lamborghini's innovation and craftsmanship. This
+                            model
                             will set new standards in the automotive world."
 
-                            The new Lamborghini is expected to feature a powerful V8 Biturbo engine, delivering unprecedented
+                            The new Lamborghini is expected to feature a powerful V8 Biturbo engine, delivering
+                            unprecedented
                             speed and agility. Additionally, it will incorporate cutting-edge technology and luxurious
                             interiors, ensuring an unparalleled driving experience.
 
-                            Stay tuned for more updates as Lamborghini prepares to unveil this highly anticipated supercar.
+                            Stay tuned for more updates as Lamborghini prepares to unveil this highly anticipated
+                            supercar.
 
                             .</p>
                     </div>
@@ -280,25 +426,31 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="blogPost5ModalLabel">Trump Announces 25% Tariffs on Foreign-Made Cars!</h5>
+                        <h5 class="modal-title" id="blogPost5ModalLabel">Trump Announces 25% Tariffs on Foreign-Made
+                            Cars!</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <img src="picture room/Trump A.jpg" class="img-fluid mb-3" alt="Trump A">
-                        <p>In a shocking announcement that could reshape the automotive industry, President Donald Trump has
+                        <p>In a shocking announcement that could reshape the automotive industry, President Donald Trump
+                            has
                             declared a 25% tariff on all foreign-made cars.
                             This decision, aimed at boosting American car manufacturing, has sent shockwaves through
                             international markets and drawn sharp criticism from allies and industry leaders alike.
-                            The tariff is set to take effect in 30 days, providing a narrow window for companies to adjust
+                            The tariff is set to take effect in 30 days, providing a narrow window for companies to
+                            adjust
                             their supply chains and pricing strategies.
-                            Experts predict that this move could lead to a significant increase in car prices for consumers,
+                            Experts predict that this move could lead to a significant increase in car prices for
+                            consumers,
                             potentially impacting demand and sales.
 
-                            "American workers and American companies have suffered long enough," Trump stated in his address.
+                            "American workers and American companies have suffered long enough," Trump stated in his
+                            address.
                             "These tariffs will level the playing field and bring manufacturing back home where it
                             belongs."
 
-                            However, critics argue that this protectionist approach could trigger a trade war, harming American
+                            However, critics argue that this protectionist approach could trigger a trade war, harming
+                            American
                             businesses that rely on imported parts and materials.
                             The long-term consequences of this decision remain uncertain, but one thing is clear: the
                             automotive landscape is about to change dramatically.
@@ -311,29 +463,108 @@
                 </div>
             </div>
         </div>
+        <section class="container my-5">
+            <h3 class="mb-4">You Might Also Like</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted">5 min read</small>
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                        </div>
+                        <img src="picture room/Best Family SUVs of 2025.jpeg" class="card-img-top" alt="Related Article">
+                        <div class="card-body">
+                            <h5 class="card-title">Best Family SUVs of 2025</h5>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Read Article →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted">5 min read</small>
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                        </div>
+                        <img src="picture room/Hybrid vs Electric Which is Right for You.jpg" class="card-img-top"
+                            alt="Related Article">
+                        <div class="card-body">
+                            <h5 class="card-title">Hybrid vs Electric: Which is Right for You?</h5>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Read Article →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted">5 min read</small>
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                        </div>
+                        <img src="picture room/Car Tech Innovations Coming Soon.jpeg" class="card-img-top"
+                            alt="Related Article">
+                        <div class="card-body">
+                            <h5 class="card-title">Car Tech Innovations Coming Soon</h5>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Read Article →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body text-center p-5">
+                        <h3 class="mb-4">Get the Latest Car News</h3>
+                        <p class="mb-4">Subscribe to our newsletter for weekly updates on car reviews, industry news, and
+                            exclusive content.</p>
+                        <form class="row g-3 justify-content-center">
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary w-100" style="background-color: #0faabe; border: none;">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="d-flex justify-content-start gap-2 mb-3">
+        <button class="btn btn-sm btn-outline-primary"><i class="fab fa-facebook-f"></i></button>
+        <button class="btn btn-sm btn-outline-info"><i class="fab fa-twitter"></i></button>
+        <button class="btn btn-sm btn-outline-danger"><i class="fab fa-instagram"></i></button>
+        <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-link"></i></button>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-4 text-muted">
+        <small>Published: March 27, 2025</small>
+        <small>By: Automotive Expert</small>
+    </div>
 
     <footer class="blog-footer">
         <p>© 2025 Car Enthusiast Blog. All Rights Reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const readMoreButtons = document.querySelectorAll('.read-more-btn');
-            readMoreButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const targetModalId = button.getAttribute('data-bs-target');
-                    const targetModal = document.querySelector(targetModalId);
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="loading"
+        style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9999;display:flex;justify-content:center;align-items:center;">
+        <div class="spinner-border text-primary" style="width:3rem;height:3rem;color:#0faabe!important" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 
-                    if (targetModal) {
-                        const modalInstance = new bootstrap.Modal(targetModal);
-                        modalInstance.show();
-                    } else {
-                        console.error(`Modal with ID "${targetModalId}" not found.`);
-                    }
-                });
-            });
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         });
     </script>
 </body>
