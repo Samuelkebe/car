@@ -161,6 +161,33 @@
         max-width: 100%;
         height: auto;
     }
+    .car-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.car-card img {
+    transition: transform 0.5s ease;
+}
+.car-card:hover img {
+    transform: scale(1.05);
+}
+    .slick-prev, .slick-next {
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+.slick-prev:hover, .slick-next:hover {
+    background: rgba(0,0,0,0.8);
+}
+.slick-prev { left: 20px; }
+.slick-next { right: 20px; }
 
     .footer {
         background-color: hsl(0, 0%, 0%);
@@ -271,6 +298,13 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/BMW 535I.png" alt="BMW 535I" data-toggle="modal" data-target="#carModal" 
                     data-name="BMW 535I, NAVI" data-price="$45,000" data-img="picture room/BMW 535I.png"
                     data-description="The BMW 535I is a luxury sedan that combines performance, elegance, and cutting-edge technology. 
@@ -295,6 +329,13 @@
             </div>             
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/Toyota Camry XSE.heif" alt="Toyota Camry XSE" data-toggle="modal" data-target="#carModal" 
                     data-name="Toyota Camry XSE" data-price="$25,000" data-img="picture room/Toyota Camry XSE.heif" 
                     data-description="Key Features of the Toyota Camry XSE (Based on Typical Model Specifications):
@@ -318,6 +359,13 @@
             </div>            
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/Kia Soul, Brand New.png" alt="Kia Soul" data-toggle="modal" data-target="#carModal" 
                     data-name="Kia Soul, Brand New" data-price="$25,000" data-img="picture room/Kia Soul, Brand New.png" 
                     data-description="Key Features of the Kia Soul, Brand New:
@@ -344,6 +392,13 @@
             </div>                       
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/Hyundai Veloster.png" alt="Hyundai Veloster" data-toggle="modal" data-target="#carModal" 
                     data-name="Hyundai Veloster" data-price="$25,000" data-img="picture room/Hyundai Veloster.png" 
                     data-description="Key Features of the Hyundai Veloster:
@@ -369,6 +424,13 @@
             </div>                        
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/fake1.jpeg" alt="BMW Vision M Next" data-toggle="modal" data-target="#carModal"
                     data-name="BMW Vision M Next" data-price="$25,000" data-img="picture room/fake1.jpeg"
                     data-description="The BMW Vision M Next is a futuristic concept car that blends cutting-edge design with high-performance technology. 
@@ -389,6 +451,13 @@
             </div>                        
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/fake2.jpeg" alt="Hyundai Creta" data-toggle="modal" data-target="#carModal"
                     data-name="Hyundai Creta" data-price="$25,000" data-img="picture room/fake2.jpeg"
                     data-description="The Hyundai Creta is a compact SUV that stands out with its bold design and advanced features. 
@@ -409,6 +478,13 @@
             </div>                        
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/fake3.jpeg" alt="Hyundai Creta S" data-toggle="modal" data-target="#carModal"
                     data-name="Hyundai Creta S" data-price="$25,000" data-img="picture room/fake3.jpeg"
                     data-description="The Hyundai Creta S is a stylish and feature-rich compact SUV, designed to offer excellent performance and comfort.
@@ -431,6 +507,13 @@
             </div>                        
             <div class="col-md-3">
                 <div class="car-card">
+                    <div class="card-body">
+                        <!-- ... existing content ... -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <small class="text-muted"><i class="far fa-eye"></i> 1,245 views</small>
+                            <small class="text-muted">5 min read</small>
+                        </div>
+                    </div>
                     <img src="picture room/bugati.jpg" alt="Bugatti Mistral" data-toggle="modal" data-target="#carModal"
                     data-name="Bugatti Mistral" data-price="$25,000" data-img="picture room/bugati.jpg"
                     data-description="The Bugatti Mistral is a luxury roadster that combines exceptional performance with stunning design features.
@@ -470,6 +553,16 @@
                 <ul id="modalKeyFeatures"></ul>
             </div>
             <div class="modal-footer">
+                <div class="d-flex justify-content-start gap-2 mb-3">
+                    <button class="btn btn-sm btn-outline-primary"><i class="fab fa-facebook-f"></i></button>
+                    <button class="btn btn-sm btn-outline-info"><i class="fab fa-twitter"></i></button>
+                    <button class="btn btn-sm btn-outline-danger"><i class="fab fa-instagram"></i></button>
+                    <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-link"></i></button>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 text-muted">
+                    <small>Published: March 27, 2025</small>
+                    <small>By: Automotive Expert</small>
+                </div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -845,5 +938,21 @@
     });
 });
     </script>
+<div id="loading" style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9999;display:flex;justify-content:center;align-items:center;">
+    <div class="spinner-border text-primary" style="width:3rem;height:3rem;color:#0faabe!important" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        document.getElementById('loading').style.display = 'none';
+    });
+</script>
+<!-- Replace script includes at top with these at bottom -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" defer></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
 </body>
 </html>
