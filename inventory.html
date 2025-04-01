@@ -33,6 +33,56 @@
             justify-content: flex-start;
             height: 150px;
         }
+        .car-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.car-card .card-body {
+  flex-grow: 1;
+}
+
+.car-card img.car-card-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.col-md-4 {
+  display: flex;
+}
+
+.col-md-4 > .car-card {
+  width: 100%;
+}
+.car-card img.car-card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: contain; /* ← This keeps the whole image visible */
+  background-color: #f9f9f9; /* Optional: adds padding background */
+  padding: 5px;              /* Optional: space around image */
+}
+.car-card:hover .car-card-image {
+  transform: scale(1.05);
+}
+.car-card:hover .car-card-image {
+  transform: scale(1.02); /* smaller zoom */
+}
+
+.card.car-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
         /* Dropdown custom styles */
         .select-arrow {
@@ -163,8 +213,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <li class="nav-item" style="background-color: #0faabe;">
-                    <a class="nav-link" href="inventory.html">Inventory</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Inventory</a>
+                    <ul class="dropdown-menu">
+                        <li><button class="dropdown-item" data-type="all">All Cars</button></li>
+                        <li><button class="dropdown-item" data-type="used">Used Cars</button></li>
+                        <li><button class="dropdown-item" data-type="electric">Electric Cars</button></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Sell My Car.html">Sell My Car</a>
@@ -381,13 +436,14 @@
                         </div>
                     </div>
                     <!-- Car Card -->
-                    <div class="col-md-4" id="car-card">
+                    <div class="col-md-4">
                         <div class="card car-card"
                              data-make="toyota"
                              data-model="fortuner"
                              data-price="10000"
                              data-year="2020"
-                             data-new="true">
+                             data-new="true"
+                             data-type="new">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -410,6 +466,9 @@
                                 <h5 class="card-title">Toyota Fortuner</h5>
                                 <p class="card-text price">£10,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                    
                         </div>
                     </div>
 
@@ -419,7 +478,8 @@
                              data-model="xuv700"
                              data-price="10000"
                              data-year="2023"
-                             data-new="false">
+                             data-new="false"
+                             data-type="new">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -442,6 +502,9 @@
                                 <h5 class="card-title">Mahindra XUV700</h5>
                                 <p class="card-text price">£10,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                  
                         </div>
                     </div>
 
@@ -451,7 +514,8 @@
                              data-model="s-cab"
                              data-price="10000"
                              data-year="2022"
-                             data-new="false">
+                             data-new="false"
+                             data-type="new">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -474,9 +538,50 @@
                                 <h5 class="card-title">Isuzu S-CAB</h5>
                                 <p class="card-text price">£10,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>
+                            
+                              
                         </div>
                     </div>
-
+                    <div class="col-md-4">
+                        <div class="card car-card fade-in"
+                             data-make="tesla"
+                             data-model="model 3"
+                             data-price="42000"
+                             data-year="2023"
+                             data-new="true"
+                             data-type="electric">
+                          <div class="position-relative">
+                            <span class="position-absolute top-0 start-0 badge bg-info text-white m-2">Electric</span>
+                            <img src="picture room/Tesla Model 3.png" class="card-img-top car-card-image"
+                                 alt="Tesla Model 3"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Tesla Model 3"
+                                 data-price="£42,000"
+                                 data-img="picture room/Tesla Model 3.png"
+                                 data-description="<strong>⚡ Tesla Model 3 – Smart, Sleek & Fully Electric</strong><br><br>
+                                 <ul>
+                                   <li><strong>Battery:</strong> Long Range 82kWh</li>
+                                   <li><strong>Range:</strong> Up to 374 miles (WLTP)</li>
+                                   <li><strong>0–60 mph:</strong> 4.2 seconds (Performance Model)</li>
+                                   <li><strong>Tech:</strong> Full Self-Driving, OTA updates, 15” touchscreen</li>
+                                   <li><strong>Interior:</strong> Minimalist design with heated seats & wireless charging</li>
+                                   <li><strong>Safety:</strong> 5-Star Euro NCAP, collision avoidance, and more</li>
+                                 </ul>
+                                 <strong>🌍 Go green without sacrificing performance or luxury!</strong>">
+                          </div>
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Tesla Model 3</h5>
+                            <p class="card-text price">£42,000</p>
+                          </div>
+                          <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                          </button>                          
+                        </div>
+                      </div>
+                      
                     <div class="col-md-4">
                         <div class="card car-card"
                              data-make="lamborghini"
@@ -507,16 +612,55 @@
                                 <h5 class="card-title">Lamborghini Revuelto</h5>
                                 <p class="card-text price">£300,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                         
                         </div>
                     </div>
-
+                     
+                    <div class="col-md-4">
+                        <div class="card car-card fade-in"
+                             data-make="hyundai"
+                             data-model="ioniq 5"
+                             data-price="38000"
+                             data-year="2023"
+                             data-new="true"
+                             data-type="electric">
+                          <div class="position-relative">
+                            <span class="position-absolute top-0 start-0 badge bg-info text-white m-2">Electric</span>
+                          </div>
+                          <img src="picture room/Hyundai Ioniq 5.jpg" class="card-img-top car-card-image"
+                               alt="Hyundai Ioniq 5"
+                               data-bs-toggle="modal" data-bs-target="#carModal"
+                               data-name="Hyundai Ioniq 5"
+                               data-price="£38,000"
+                               data-img="picture room/Hyundai Ioniq 5.jpg"
+                               data-description="<strong>⚡ Hyundai Ioniq 5 – Award-Winning Innovation</strong><br><br>
+                               <ul>
+                                 <li><strong>🔋 Battery:</strong> 77.4 kWh with up to 315 miles range</li>
+                                 <li><strong>⚡ Charging:</strong> 10-80% in under 18 minutes with ultra-fast charging</li>
+                                 <li><strong>🛋️ Interior:</strong> Spacious, minimalist with sliding center console</li>
+                                 <li><strong>🖥️ Tech:</strong> Dual 12.3” displays, smart park assist</li>
+                               </ul>
+                               <strong>🌟 Futuristic design meets functionality</strong>">
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Hyundai Ioniq 5</h5>
+                            <p class="card-text price">£38,000</p>
+                          </div>
+                          <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </button>                                                 
+                        </div>
+                      </div>
+                                   
                     <div class="col-md-4">
                         <div class="card car-card"
                              data-make="lamborghini"
                              data-model="huracan evo"
                              data-price="250000"
                              data-year="2023"
-                             data-new="false">
+                             data-new="false"
+                             data-type="new">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -540,8 +684,47 @@
                                 <h5 class="card-title">Lamborghini Huracán EVO</h5>
                                 <p class="card-text price">£250,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                          
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="card car-card fade-in"
+                             data-make="nissan"
+                             data-model="leaf"
+                             data-price="29000"
+                             data-year="2022"
+                             data-new="false"
+                             data-type="electric">
+                          <div class="position-relative">
+                            <span class="position-absolute top-0 start-0 badge bg-info text-white m-2">Electric</span>
+                          </div>
+                          <img src="picture room/Nissan Leaf.jpg" class="card-img-top car-card-image"
+                               alt="Nissan Leaf"
+                               data-bs-toggle="modal" data-bs-target="#carModal"
+                               data-name="Nissan Leaf"
+                               data-price="£29,000"
+                               data-img="picture room/nissan leaf.jpg"
+                               data-description="<strong>🔌 Nissan Leaf – The Trusted EV Pioneer</strong><br><br>
+                               <ul>
+                                 <li><strong>🔋 Range:</strong> Up to 168 miles (standard)</li>
+                                 <li><strong>🌍 Eco Driving:</strong> Zero emissions, ideal for city life</li>
+                                 <li><strong>📦 Boot Space:</strong> 435L, practical for family use</li>
+                                 <li><strong>🛡️ Safety:</strong> ProPILOT assist and e-Pedal tech</li>
+                               </ul>
+                               <strong>✅ Great entry-level EV with proven reliability</strong>">
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Nissan Leaf</h5>
+                            <p class="card-text price">£29,000</p>
+                          </div>
+                          <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </button>                                                 
+                        </div>
+                      </div>
+                      
 
                     <div class="col-md-4">
                         <div class="card car-card"
@@ -549,7 +732,8 @@
                              data-model="cullinan"
                              data-price="350000"
                              data-year="2022"
-                             data-new="false">
+                             data-new="false"
+                             data-type="new">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -572,6 +756,9 @@
                                 <h5 class="card-title">Rolls-Royce Cullinan</h5>
                                 <p class="card-text">£350,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                        
                         </div>
                     </div>
 
@@ -581,7 +768,8 @@
                              data-model="2008"
                              data-price="25000"
                              data-year="2020"
-                             data-new="true">
+                             data-new="true"
+                             data-type="used">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -596,9 +784,47 @@
                                 <h5 class="card-title">Peugeot 2008</h5>
                                 <p class="card-text">£25,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                         
                         </div>
                     </div>
 
+                    <div class="col-md-4">
+                        <div class="card car-card fade-in"
+                             data-make="bmw"
+                             data-model="ix"
+                             data-price="95000"
+                             data-year="2023"
+                             data-new="true"
+                             data-type="electric">
+                          <div class="position-relative">
+                            <span class="position-absolute top-0 start-0 badge bg-info text-white m-2">Electric</span>
+                          </div>
+                          <img src="picture room/BMW iX xDrive50.jpg" class="card-img-top car-card-image"
+                               alt="BMW iX"
+                               data-bs-toggle="modal" data-bs-target="#carModal"
+                               data-name="BMW iX xDrive50"
+                               data-price="£95,000"
+                               data-img="picture room/BMW iX xDrive50.jpg"
+                               data-description="<strong>🚀 BMW iX xDrive50 – Luxury Redefined</strong><br><br>
+                               <ul>
+                                 <li><strong>🔋 Battery:</strong> 111.5 kWh for ~380 miles range</li>
+                                 <li><strong>⚡ Acceleration:</strong> 0-60 in 4.4 sec with dual motors</li>
+                                 <li><strong>🛋️ Cabin:</strong> Crystal controls, panoramic sunroof</li>
+                                 <li><strong>🧠 Intelligence:</strong> iDrive 8, augmented reality nav</li>
+                               </ul>
+                               <strong>💎 Premium electric SUV for the elite</strong>">
+                          <div class="card-body text-center">
+                            <h5 class="card-title">BMW iX xDrive50</h5>
+                            <p class="card-text price">£95,000</p>
+                          </div>
+                          <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </button>                                                 
+                        </div>
+                      </div>
+                      
                     <div class="col-md-4">
                         <div class="card car-card"
                              data-make="peugeot"
@@ -619,6 +845,9 @@
                                 <h5 class="card-title">Peugeot Rifter 1.2 PureTech GT Line</h5>
                                 <p class="card-text">£20,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                          
                         </div>
                     </div>
 
@@ -628,7 +857,8 @@
                              data-model="208"
                              data-price="18000"
                              data-year="2022"
-                             data-new="false">
+                             data-new="false"
+                             data-type="used">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -643,6 +873,9 @@
                                 <h5 class="card-title">Peugeot 208</h5>
                                 <p class="card-text">£18,000</p>
                             </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                            </button>                                                         
                         </div>
                     </div>
 
@@ -653,7 +886,8 @@
                              data-model="x5"
                              data-price="45000"
                              data-year="2021"
-                             data-new="false">
+                             data-new="false"
+                             data-type="used">
                              <div class="position-relative">
                                 <span class="position-absolute top-0 start-0 badge bg-danger m-2">Hot Deal</span>
                                 <img src="..." class="card-img-top" alt="...">
@@ -673,12 +907,48 @@
                                     <li><strong>MPG:</strong> 21 city / 26 highway</li>
                                 </ul>
                                 <strong>🌟 Premium luxury with sporty performance</strong>">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">BMW X5 xDrive40i</h5>
-                                <p class="card-text">£45,000</p>
-                            </div>
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                              </button>                              
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="card car-card fade-in"
+                             data-make="ford"
+                             data-model="focus"
+                             data-price="6500"
+                             data-year="2016"
+                             data-new="false"
+                             data-type="used">
+                          <div class="position-relative">
+                            <span class="position-absolute top-0 start-0 badge bg-warning text-dark m-2">Used</span>
+                            <img src="picture room/Ford Focus 2016.jpeg" class="card-img-top car-card-image"
+                                 alt="Ford Focus 2016"
+                                 data-bs-toggle="modal" data-bs-target="#carModal"
+                                 data-name="Ford Focus 2016"
+                                 data-price="£6,500"
+                                 data-img="picture room/Ford Focus 2016.jpg"
+                                 data-description="<strong>🚘 Ford Focus 2016 – Practical, Reliable, Affordable</strong><br><br>
+                                 <ul>
+                                   <li><strong>Engine:</strong> 1.5L EcoBoost</li>
+                                   <li><strong>Transmission:</strong> 6-speed manual</li>
+                                   <li><strong>Fuel Efficiency:</strong> 55 mpg</li>
+                                   <li><strong>Features:</strong> Bluetooth, cruise control, rear parking sensors</li>
+                                   <li><strong>Condition:</strong> Full service history, 1 previous owner</li>
+                                 </ul>
+                                 <strong>💥 A smart choice for city driving or first-time buyers!</strong>">
+                          </div>
+                          <div class="card-body text-center">
+                            <h5 class="card-title">Ford Focus 2016</h5>
+                            <p class="card-text price">£6,500</p>
+                          </div>
+                          <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                          </button>
+                          
+                        </div>
+                      </div>
+
                 </div>
             </div>
         </div>
@@ -695,6 +965,54 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="carModalLabel">Car Details</h5>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary compare-btn" data-car-id="">
+                            <i class="fas fa-balance-scale"></i> Add to Compare
+                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
+                                <i class="fas fa-shopping-cart"></i> Buy Now
+                              </button>                              
+                    </div>
+                    <script>
+                        function buyNow() {
+  const car = {
+    name: document.getElementById('carModalName').innerText,
+    price: document.getElementById('carModalPrice').innerText,
+    img: document.getElementById('carModalImage').getAttribute('src')
+  };
+  localStorage.setItem('carToBuy', JSON.stringify(car));
+}
+
+                        function buyNow() {
+                            const car = {
+                                name: document.getElementById('carModalName').innerText,
+                                price: document.getElementById('carModalPrice').innerText.replace(/[^\d]/g, ''),
+                                img: document.getElementById('carModalImage').getAttribute('src')
+                            };
+                        
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            cart.push(car);
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                        
+                            window.location.href = 'Shop.html';
+                        }
+                        </script>     
+                        <script>
+                            function buyNowFromCard(button) {
+  const card = button.closest('.car-card');
+  const name = card.querySelector('.card-title').innerText;
+  const price = card.querySelector('.card-text').innerText;
+  const img = card.querySelector('img.car-card-image').getAttribute('src');
+
+  const car = { name, price, img };
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(car);
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  window.location.href = 'Shop.html';
+}
+
+                          </script>                                   
+                    
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -716,23 +1034,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Add hover effect with quick view
-$('.car-card').hover(
-  function() {
-    const img = $(this).find('img').attr('src');
-    const title = $(this).find('.card-title').text();
-    const price = $(this).find('.price').text();
-    
-    $(this).attr('data-bs-toggle', 'modal');
-    $(this).attr('data-bs-target', '#quickViewModal');
-    $(this).attr('onclick', `$('#quick-view-img').attr('src','${img}'); 
-      $('#quick-view-title').text('${title}'); 
-      $('#quick-view-price').text('${price}')`);
-  },
-  function() {
-    $(this).removeAttr('data-bs-toggle data-bs-target onclick');
-  }
-);
+
         // Initialize compare array
 let compareList = [];
 
@@ -743,8 +1045,9 @@ $('#carModal').on('show.bs.modal', function(event) {
   // Add compare button functionality
   const modal = $(this);
   modal.find('.compare-btn').off('click').on('click', function() {
-    const carId = button.data('name').replace(/\s+/g, '-').toLowerCase();
-    
+    const carName = modal.find('#carModalName').text();
+    const carId = carName.replace(/\s+/g, '-').toLowerCase();
+
     if (compareList.includes(carId)) {
       compareList = compareList.filter(id => id !== carId);
       $(this).html('<i class="fas fa-balance-scale"></i> Compare');
@@ -782,9 +1085,13 @@ function updateCompareBar() {
             var description = button.data('description');
             var modal = $(this);
             modal.find('#carModalName').text(name);
-            modal.find('#carModalPrice').text(price);
-            modal.find('#carModalImage').attr('src', img);
-            modal.find('#carModalDescription').html(description);
+modal.find('#carModalPrice').text(price);
+modal.find('#carModalImage').attr('src', img);
+modal.find('#carModalDescription').html(description);
+
+// Set dynamic Shop URL
+modal.find('#buyNowBtn').attr('href', `Shop.html?car=${encodeURIComponent(name)}`);
+
         });
 
         // Initialize filter buttons
@@ -980,5 +1287,25 @@ function updateCompareBar() {
       </button>
     </div>
   </div>
+  <script>
+    // Listen to all buttons in the dropdown
+    document.querySelectorAll('.dropdown-item[data-type]').forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedType = button.getAttribute('data-type');
+  
+        // Loop through all car cards
+        document.querySelectorAll('.car-card').forEach(card => {
+          const cardType = card.getAttribute('data-type') || 'all';
+  
+          // Show all cars if type is 'all'
+          if (selectedType === 'all' || cardType === selectedType) {
+            card.parentElement.style.display = 'block';
+          } else {
+            card.parentElement.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>  
 </body>
 </html>
