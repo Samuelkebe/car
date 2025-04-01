@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell My Car | Phoenix Motors</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .header-section {
+      background-image: linear-gradient(135deg, #000000, #0faabe);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .side-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 992px) {
+      .side-image {
+        margin-bottom: 20px;
+      }
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f8f9fa;
+    }
+
+    .dark-mode .form-container {
+      background-color: #1e1e1e;
+      color: #f8f9fa;
+    }
+            /* Navbar adjustments */
+            .navbar {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .navbar-brand img {
+            max-height: 50px;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-brand {
+            margin-right: auto;
+        }
+
+        .navbar-brand h1 {
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0;
+            color: #0987ad;
+        }
+  </style>
+</head>
+
+<body class="pt-5"> <!-- Add top padding for navbar -->
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+        <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="inventory.html">Inventory</a>
+            </li>
+            <li class="nav-item" style="background-color: #0faabe;">
+                <a class="nav-link" href="Sell My Car.html">Sell My Car</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Car Leasing.html">Car Leasing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Services.html">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Shop.HTML">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Contact.HTML">Contact</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-link nav-link" id="darkModeToggle">
+                  <i class="fas fa-moon"></i>
+                </button>
+              </li>
+              
+              <script>
+                // Dark mode toggle
+                document.getElementById('darkModeToggle').addEventListener('click', function() {
+                  document.body.classList.toggle('dark-mode');
+                  this.querySelector('i').classList.toggle('fa-sun');
+                });
+              </script>
+              
+              <style>
+                .dark-mode {
+                  background-color: #121212;
+                  color: #f8f9fa;
+                }
+                .dark-mode .card {
+                  background-color: #1e1e1e;
+                  color: #f8f9fa;
+                }
+                .dark-mode .modal-content {
+                  background-color: #1e1e1e;
+                  color: #f8f9fa;
+                }
+              </style>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+  <!-- Header -->
+  <header class="header-section">
+    <h1>Sell Your Car with Phoenix Motors</h1>
+    <p>Easily list your car for sale and reach thousands of potential buyers.</p>
+  </header>
+
+  <!-- Form Section -->
+  <div class="container my-5">
+    <div class="row justify-content-center align-items-center g-4">
+      <!-- Left Image -->
+      <div class="col-lg-3 col-md-12 text-center">
+        <img src="picture room/buga 1.jpeg" alt="Car Left" class="side-image" />
+      </div>
+
+      <!-- Form -->
+      <div class="col-lg-6 col-md-12">
+        <div class="form-container">
+          <h3 class="mb-4">Car Details</h3>
+          <form id="sellCarForm">
+            <div class="mb-3">
+              <label for="makeModel" class="form-label">Make & Model</label>
+              <input type="text" class="form-control" id="makeModel" placeholder="e.g., Toyota Corolla" required />
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Year</label>
+                <input type="number" class="form-control" min="1980" max="2025" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Mileage</label>
+                <input type="number" class="form-control" placeholder="e.g., 50000" required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price ($)</label>
+              <input type="number" class="form-control" placeholder="Your asking price" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" rows="4" placeholder="Describe your car briefly" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Car Images</label>
+              <input class="form-control" type="file" accept="image/*" multiple required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your Email</label>
+              <input type="email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your Phone Number</label>
+              <input type="tel" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit Your Car</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-3 col-md-12 text-center">
+        <img src="picture room/Lamborghini Revuelto.jpg" alt="Car Right" class="side-image" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 mt-5 bg-light">
+    <p class="mb-0">© 2024 Phoenix Motors. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("sellCarForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you! Your car details have been submitted. We will contact you shortly.");
+      this.reset();
+    });
+
+    // Dark Mode Toggle
+    document.getElementById("darkModeToggle").addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+      this.querySelector("i").classList.toggle("fa-sun");
+      this.querySelector("i").classList.toggle("fa-moon");
+    });
+  </script>
+</body>
+
+</html>
