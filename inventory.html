@@ -968,9 +968,7 @@
                     <div class="modal-footer">
                         <button class="btn btn-outline-primary compare-btn" data-car-id="">
                             <i class="fas fa-balance-scale"></i> Add to Compare
-                            <button class="btn btn-success" onclick="buyNowFromCard(this)">
-                                <i class="fas fa-shopping-cart"></i> Buy Now
-                              </button>                              
+                        </button>                           
                     </div>
                     <script>
                         function buyNow() {
@@ -1307,5 +1305,35 @@ modal.find('#buyNowBtn').attr('href', `Shop.html?car=${encodeURIComponent(name)}
       });
     });
   </script>  
+  <script>
+    // Adding an item to cart (Inventory page script)
+function addCarToCart(car) {
+  // Retrieve current cart or initialize an empty array
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Add the new car object to the array
+  cart.push(car);
+  
+  // Save back to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+function addCarToCart(car) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Check if the car is already in cart (using id as unique key)
+  const existingItem = cart.find(item => item.id === car.id);
+  if (existingItem) {
+    // Car already in cart – increment quantity instead of adding new
+    existingItem.quantity = (existingItem.quantity || 1) + 1;
+  } else {
+    // New car – set initial quantity and add to cart
+    car.quantity = 1;
+    cart.push(car);
+  }
+  
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+  </script>
 </body>
 </html>
