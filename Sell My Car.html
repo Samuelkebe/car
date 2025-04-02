@@ -150,92 +150,131 @@
         </ul>
     </div>
 </nav>
-  <!-- Header -->
-  <header class="header-section">
-    <h1>Sell Your Car with Phoenix Motors</h1>
-    <p>Easily list your car for sale and reach thousands of potential buyers.</p>
-  </header>
+ <!-- Header -->
+ <header class="header-section">
+  <h1>Sell Your Car with Phoenix Motors</h1>
+  <p>Easily list your car for sale and reach thousands of potential buyers.</p>
+</header>
 
-  <!-- Form Section -->
-  <div class="container my-5">
-    <div class="row justify-content-center align-items-center g-4">
-      <!-- Left Image -->
-      <div class="col-lg-3 col-md-12 text-center">
-        <img src="picture room/buga 1.jpeg" alt="Car Left" class="side-image" />
+<!-- Form Section -->
+<div class="container my-5">
+  <div class="row justify-content-center align-items-center g-4">
+    <div class="col-lg-3 col-md-12 text-center">
+      <img src="picture room/buga 1.jpeg" alt="Car Left" class="side-image" />
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="form-container">
+        <h3 class="mb-4">Car Details</h3>
+        <form id="sellCarForm" action="https://formsubmit.co/samuelkebede094@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+          <div class="mb-3">
+            <label class="form-label">Make & Model</label>
+            <input type="text" name="MakeModel" class="form-control" placeholder="e.g., Toyota Corolla" required />
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Year</label>
+              <input type="number" name="Year" class="form-control" min="1980" max="2025" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Mileage</label>
+              <input type="number" name="Mileage" class="form-control" placeholder="e.g., 50000" required />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price ($)</label>
+            <input type="number" name="Price" class="form-control" placeholder="Your asking price" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="Description" rows="4" placeholder="Describe your car briefly" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Car Images</label>
+            <input class="form-control" name="Images" type="file" accept="image/*" multiple required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your Email</label>
+            <input type="email" name="Email" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your Phone Number</label>
+            <input type="tel" name="Phone" class="form-control" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100" id="submitBtn">Submit Your Car</button>
+        </form>
       </div>
+    </div>
+    <div class="col-lg-3 col-md-12 text-center">
+      <img src="picture room/Lamborghini Revuelto.jpg" alt="Car Right" class="side-image" />
+    </div>
+  </div>
+</div>
 
-      <!-- Form -->
-      <div class="col-lg-6 col-md-12">
-        <div class="form-container">
-          <h3 class="mb-4">Car Details</h3>
-          <form id="sellCarForm">
-            <div class="mb-3">
-              <label for="makeModel" class="form-label">Make & Model</label>
-              <input type="text" class="form-control" id="makeModel" placeholder="e.g., Toyota Corolla" required />
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Year</label>
-                <input type="number" class="form-control" min="1980" max="2025" required />
-              </div>
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Mileage</label>
-                <input type="number" class="form-control" placeholder="e.g., 50000" required />
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price ($)</label>
-              <input type="number" class="form-control" placeholder="Your asking price" required />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea class="form-control" rows="4" placeholder="Describe your car briefly" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Car Images</label>
-              <input class="form-control" type="file" accept="image/*" multiple required />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Your Email</label>
-              <input type="email" class="form-control" required />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Your Phone Number</label>
-              <input type="tel" class="form-control" required />
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Submit Your Car</button>
-          </form>
+<!-- Modal -->
+<div class="modal fade" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="listingModalLabel">Choose Your Listing Plan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="listingOption" id="basicOption" value="Basic" checked>
+          <label class="form-check-label" for="basicOption">
+            <strong>Basic Listing</strong> - $10<br><small>1-week listing, standard visibility</small>
+          </label>
         </div>
-      </div>
-
-      <!-- Right Image -->
-      <div class="col-lg-3 col-md-12 text-center">
-        <img src="picture room/Lamborghini Revuelto.jpg" alt="Car Right" class="side-image" />
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="radio" name="listingOption" id="premiumOption" value="Premium">
+          <label class="form-check-label" for="premiumOption">
+            <strong>Premium Listing</strong> - $20<br><small>1-month listing, featured placement</small>
+          </label>
+        </div>
+        <button class="btn btn-success w-100" id="payNowBtn">Pay Now</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Footer -->
-  <footer class="text-center py-4 mt-5 bg-light">
-    <p class="mb-0">© 2024 Phoenix Motors. All rights reserved.</p>
-  </footer>
+<footer class="text-center py-4 mt-5 bg-light">
+  <p class="mb-0">© 2024 Phoenix Motors. All rights reserved.</p>
+</footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById("sellCarForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Thank you! Your car details have been submitted. We will contact you shortly.");
-      this.reset();
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let selectedOption = "Basic";
+
+  const form = document.getElementById("sellCarForm");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const modal = new bootstrap.Modal(document.getElementById('listingModal'));
+    modal.show();
+  });
+
+  document.querySelectorAll('input[name="listingOption"]').forEach((el) => {
+    el.addEventListener('change', function () {
+      selectedOption = this.value;
     });
+  });
 
-    // Dark Mode Toggle
-    document.getElementById("darkModeToggle").addEventListener("click", function () {
-      document.body.classList.toggle("dark-mode");
-      this.querySelector("i").classList.toggle("fa-sun");
-      this.querySelector("i").classList.toggle("fa-moon");
-    });
-  </script>
+  document.getElementById("payNowBtn").addEventListener("click", function () {
+    alert(`Thank you! You've selected the ${selectedOption} Listing. Your car will be submitted now.`);
+    bootstrap.Modal.getInstance(document.getElementById('listingModal')).hide();
+    form.submit();
+  });
+
+  // Dark Mode Toggle
+  document.getElementById("darkModeToggle")?.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    this.querySelector("i").classList.toggle("fa-sun");
+    this.querySelector("i").classList.toggle("fa-moon");
+  });
+</script>
 </body>
 
 </html>
