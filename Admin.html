@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Phoenix Motors</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .owner-dashboard {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .owner-form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .form-preview-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .form-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .preview-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .preview-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .preview-card img {
+            height: 200px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+            padding: 5px;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .preview-card:hover img {
+            transform: scale(1.02);
+        }
+        
+        .form-label {
+            font-weight: 600;
+        }
+        
+        .btn-post {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        
+        .btn-post:hover {
+            transform: translateY(-2px);
+        }
+        
+        .navbar {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .navbar-brand img {
+            max-height: 50px;
+        }
+
+        .navbar-brand h1 {
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0;
+            color: #0987ad;
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 20px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .form-preview-container {
+                flex-direction: column;
+            }
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: #f8f9fa;
+        }
+        .dark-mode .modal-content {
+            background-color: #1e1e1e;
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Inventory.html">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sell My Car.html">Sell My Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Car Leasing.html">Car Leasing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Shop.HTML">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.HTML">Contact</a>
+                </li>
+                <li class="nav-item Active" style="background: linear-gradient(to right, #7b00ff, #0057ee);">
+                    <a class="nav-link" href="Admin.html" style="color: white;">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-link nav-link" id="darkModeToggle">
+                      <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="owner-dashboard">
+        <div class="container py-4">
+            <h1 class="text-center mb-5">Owner Dashboard</h1>
+            
+            <div class="owner-form-container">
+                <div class="form-preview-container">
+                    <div class="form-section">
+                        <h2 class="mb-4">Add New Vehicle</h2>
+                        <form id="carForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Car Name *</label>
+                                    <input type="text" id="carName" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Price (£) *</label>
+                                    <input type="number" id="carPrice" class="form-control" min="0" step="100" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Upload Image *</label>
+                                    <input type="file" id="carImage" class="form-control" accept="image/*" required>
+                                  </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Model Year *</label>
+                                    <input type="number" id="carYear" class="form-control" min="1900" max="2099" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Make *</label>
+                                <select id="carMake" class="form-select" required>
+                                    <option value="">Select Make</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="mahindra">Mahindra</option>
+                                    <option value="isuzu">Isuzu</option>
+                                    <option value="lamborghini">Lamborghini</option>
+                                    <option value="rolls-royce">Rolls-Royce</option>
+                                    <option value="peugeot">Peugeot</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="tesla">Tesla</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="hyundai">Hyundai</option>
+                                    <option value="ford">Ford</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Model *</label>
+                                <input type="text" id="carModel" class="form-control" required>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Mileage (miles) *</label>
+                                    <input type="number" id="carMileage" class="form-control" min="0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Fuel Type *</label>
+                                    <select id="carFuel" class="form-select" required>
+                                        <option value="petrol">Petrol</option>
+                                        <option value="diesel">Diesel</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Transmission *</label>
+                                    <select id="carTransmission" class="form-select" required>
+                                        <option value="automatic">Automatic</option>
+                                        <option value="manual">Manual</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Doors *</label>
+                                    <select id="carDoors" class="form-select" required>
+                                        <option value="2">2 Doors</option>
+                                        <option value="3">3 Doors</option>
+                                        <option value="4">4 Doors</option>
+                                        <option value="5">5 Doors</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Vehicle Type *</label>
+                                <select id="carType" class="form-select" required>
+                                    <option value="new">New</option>
+                                    <option value="used">Used</option>
+                                    <option value="electric">Electric</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Description *</label>
+                                <textarea id="carDescription" class="form-control" rows="4" maxlength="500" required></textarea>
+                                <div class="form-text text-end"><span id="charCount">0</span>/500</div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-post">
+                                    <i class="fas fa-plus-circle me-2"></i>Post Vehicle
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <h2 class="mb-4">Preview</h2>
+                        <div class="card preview-card">
+                            <img id="previewImage" src="https://via.placeholder.com/300x200?text=Image+Preview" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h5 id="previewName" class="card-title">Car Name</h5>
+                                <p id="previewPrice" class="card-text">£0</p>
+                                <div class="row small mt-2">
+                                    <div class="col-6">
+                                        <p><i class="fas fa-tachometer-alt"></i> <span id="previewMileage">0</span> mi</p>
+                                        <p><i class="fas fa-gas-pump"></i> <span id="previewFuel">-</span></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><i class="fas fa-cog"></i> <span id="previewTransmission">-</span></p>
+                                        <p><i class="fas fa-car"></i> <span id="previewBody">-</span></p>
+                                    </div>
+                                </div>
+                                <div class="color-preview mt-2" id="previewColor"></div>
+                                <p id="previewYear" class="small text-muted mt-2">Year: -</p>
+                                <p id="previewMakeModel" class="small">Make: - | Model: -</p>
+                                <p id="previewType" class="badge bg-primary mt-2">Type: -</p>
+                                <p id="previewDescription" class="card-text small mt-2">Description will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="owner-form-container">
+                <h2 class="mb-4">Posted Vehicles</h2>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Year</th>
+                                <th>Mileage</th>
+                                <th>Fuel</th>
+                                <th>Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postedCarsTable">
+                            <!-- Cars will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Character counter
+        document.getElementById('carDescription').addEventListener('input', (e) => {
+          document.getElementById('charCount').textContent = e.target.value.length;
+        });
+    
+        // Image preview function
+        function previewImage(fileInput) {
+          const preview = document.getElementById('previewImage');
+          if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              preview.src = e.target.result;
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+          } else {
+            preview.src = 'https://via.placeholder.com/300x200?text=Image+Preview';
+          }
+        }
+    
+        // Preview update
+        function updatePreview() {
+          document.getElementById('previewName').textContent = document.getElementById('carName').value || 'Car Name';
+          document.getElementById('previewPrice').textContent = '£' + (document.getElementById('carPrice').value || '0');
+          document.getElementById('previewYear').textContent = 'Year: ' + (document.getElementById('carYear').value || '-');
+          document.getElementById('previewMakeModel').textContent = 'Make: ' + (document.getElementById('carMake').value || '-') + ' | Model: ' + (document.getElementById('carModel').value || '-');
+          document.getElementById('previewDescription').textContent = document.getElementById('carDescription').value || 'Description will appear here...';
+          document.getElementById('previewMileage').textContent = document.getElementById('carMileage').value || '0';
+          document.getElementById('previewFuel').textContent = document.getElementById('carFuel').value || '-';
+          document.getElementById('previewTransmission').textContent = document.getElementById('carTransmission').value || '-';
+    
+          const type = document.getElementById('carType').value;
+          const badge = document.getElementById('previewType');
+          badge.className = 'badge mt-2';
+          if (type === 'electric') {
+            badge.classList.add('bg-success');
+          } else if (type === 'used') {
+            badge.classList.add('bg-warning', 'text-dark');
+          } else {
+            badge.classList.add('bg-primary');
+          }
+          badge.textContent = 'Type: ' + (type || '-');
+        }
+    
+        // Watch inputs
+        const formFields = ['carName', 'carPrice', 'carYear', 'carMake', 'carModel', 'carType', 'carDescription', 'carMileage', 'carFuel', 'carTransmission', 'carDoors'];
+        formFields.forEach((id) => {
+          document.getElementById(id).addEventListener('input', updatePreview);
+        });
+        document.getElementById('carImage').addEventListener('change', function () {
+          previewImage(this);
+        });
+    
+        let editingCarId = null;
+    
+        // Form submission
+        document.getElementById('carForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+    
+          const reader = new FileReader();
+          const file = document.getElementById('carImage').files[0];
+          if (!file) return alert('Please upload an image.');
+    
+          reader.onload = function (e) {
+            const newCar = {
+              id: editingCarId || Date.now(),
+              name: document.getElementById('carName').value,
+              price: document.getElementById('carPrice').value,
+              img: e.target.result,
+              year: document.getElementById('carYear').value,
+              make: document.getElementById('carMake').value,
+              model: document.getElementById('carModel').value,
+              type: document.getElementById('carType').value,
+              description: document.getElementById('carDescription').value,
+              mileage: document.getElementById('carMileage').value,
+              fuel: document.getElementById('carFuel').value,
+              transmission: document.getElementById('carTransmission').value,
+              doors: document.getElementById('carDoors').value,
+              posted: new Date().toLocaleString(),
+            };
+    
+            let existing = JSON.parse(localStorage.getItem('ownerCars') || '[]');
+            if (editingCarId) existing = existing.filter((c) => c.id !== editingCarId);
+            existing.unshift(newCar);
+            localStorage.setItem('ownerCars', JSON.stringify(existing));
+    
+            editingCarId = null;
+            updatePostedCarsTable();
+            document.getElementById('carForm').reset();
+            document.getElementById('charCount').textContent = '0';
+            document.getElementById('previewImage').src = 'https://via.placeholder.com/300x200?text=Image+Preview';
+            updatePreview();
+            alert('Vehicle posted successfully!');
+          };
+          reader.readAsDataURL(file);
+        });
+    
+        function updatePostedCarsTable() {
+          const cars = JSON.parse(localStorage.getItem('ownerCars') || '[]');
+          const tableBody = document.getElementById('postedCarsTable');
+          tableBody.innerHTML = '';
+          cars.forEach((car) => {
+            let badgeClass = 'badge bg-primary';
+            if (car.type === 'electric') badgeClass = 'badge bg-success';
+            else if (car.type === 'used') badgeClass = 'badge bg-warning text-dark';
+    
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td><img src="${car.img}" style="height: 50px; object-fit: contain;"></td>
+              <td>${car.name}</td>
+              <td>£${parseInt(car.price).toLocaleString()}</td>
+              <td>${car.year}</td>
+              <td>${parseInt(car.mileage).toLocaleString()} mi</td>
+              <td>${car.fuel}</td>
+              <td><span class="${badgeClass}">${car.type}</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${car.id}"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${car.id}"><i class="fas fa-trash"></i></button>
+              </td>`;
+            tableBody.appendChild(row);
+          });
+    
+          document.querySelectorAll('.edit-btn').forEach((btn) => {
+            btn.addEventListener('click', () => editCar(parseInt(btn.dataset.id)));
+          });
+          document.querySelectorAll('.delete-btn').forEach((btn) => {
+            btn.addEventListener('click', () => deleteCar(parseInt(btn.dataset.id)));
+          });
+        }
+    
+        function editCar(carId) {
+          const cars = JSON.parse(localStorage.getItem('ownerCars') || '[]');
+          const car = cars.find((c) => c.id === carId);
+          if (!car) return;
+    
+          editingCarId = carId;
+          document.getElementById('carName').value = car.name;
+          document.getElementById('carPrice').value = car.price;
+          document.getElementById('carYear').value = car.year;
+          document.getElementById('carMake').value = car.make;
+          document.getElementById('carModel').value = car.model;
+          document.getElementById('carType').value = car.type;
+          document.getElementById('carDescription').value = car.description;
+          document.getElementById('carMileage').value = car.mileage;
+          document.getElementById('carFuel').value = car.fuel;
+          document.getElementById('carTransmission').value = car.transmission;
+          document.getElementById('carDoors').value = car.doors;
+          document.getElementById('charCount').textContent = car.description.length;
+          document.getElementById('previewImage').src = car.img;
+          updatePreview();
+        }
+    
+        function deleteCar(carId) {
+          const cars = JSON.parse(localStorage.getItem('ownerCars') || '[]');
+          const updatedCars = cars.filter((c) => c.id !== carId);
+          localStorage.setItem('ownerCars', JSON.stringify(updatedCars));
+          updatePostedCarsTable();
+        }
+    
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+          document.body.classList.toggle('dark-mode');
+          this.querySelector('i').classList.toggle('fa-sun');
+        });
+    
+        updatePostedCarsTable();
+        updatePreview();
+      </script>
+    </body>
+    </html>
+<!-- End of Admin.html -->
+<!-- This is the end of the HTML document. The script at the end handles the functionality of the page, including form submission, image preview, and local storage management for posted vehicles. The CSS styles are included in the head section to style the page elements. -->    
