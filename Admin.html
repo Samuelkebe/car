@@ -165,6 +165,11 @@
                     </a>
                 </li>
             </ul>
+            <div class="d-flex ms-auto">
+                <button class="btn btn-outline-danger me-2" onclick="logout()">
+                  <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </button>
+              </div>      
         </div>
     </nav>
 
@@ -500,6 +505,39 @@
         });
         updatePostedCarsTable();
         updatePreview();
+      </script>
+      <script>
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+          // Replace the whole body with the login form
+          document.body.innerHTML = `
+            <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+              <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+                <h2 class="mb-3 text-center">Admin Login</h2>
+                <input type="text" id="username" class="form-control mb-2" placeholder="Username" />
+                <input type="password" id="password" class="form-control mb-3" placeholder="Password" />
+                <button class="btn btn-primary w-100" onclick="login()">Login</button>
+              </div>
+            </div>
+          `;
+        }
+      
+        function login() {
+          const u = document.getElementById('username').value;
+          const p = document.getElementById('password').value;
+      
+          if (u === 'admin' && p === '1234') {
+            localStorage.setItem('isLoggedIn', 'true');
+            location.reload();
+          } else {
+            alert('Invalid username or password!');
+          }
+        }
+      
+        function logout() {
+          localStorage.removeItem("isLoggedIn");
+          location.reload();
+        }
       </script>
     </body>
     </html>
