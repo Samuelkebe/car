@@ -247,7 +247,6 @@
                   <li class="nav-item Active" style="background: linear-gradient(to right, #7b00ff, #0057ee);">
                     <a class="nav-link" href="Admin.html" style="color: white;">Admin</a>
                 </li>
-
                   <script>
                     // Dark mode toggle
                     document.getElementById('darkModeToggle').addEventListener('click', function() {
@@ -1338,5 +1337,32 @@ function addCarToCart(car) {
 }
 
   </script>
+<script>
+    const vehicles = JSON.parse(localStorage.getItem('ownerCars') || '[]');
+    const container = document.getElementById('vehicleList');
+  
+    if (vehicles.length === 0) {
+      container.innerHTML = '<p>No vehicles posted yet.</p>';
+    } else {
+      vehicles.forEach(car => {
+        const card = document.createElement('div');
+        card.className = 'col-md-4';
+        card.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <img src="${car.img}" class="card-img-top" alt="${car.name}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">${car.name}</h5>
+              <p class="card-text"><strong>£${parseInt(car.price).toLocaleString()}</strong></p>
+              <p class="card-text small">Year: ${car.year} | ${car.make} ${car.model}</p>
+              <p class="card-text small">${car.mileage} mi • ${car.fuel} • ${car.transmission}</p>
+              <span class="badge ${car.type === 'used' ? 'bg-warning text-dark' : car.type === 'electric' ? 'bg-success' : 'bg-primary'}">${car.type}</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</div>  
 </body>
 </html>
