@@ -2,55 +2,74 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Leasing | Phoenix Motors</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-
-    .header-section {
-      background-image: linear-gradient(135deg, #000000, #0faabe);
-      color: white;
-      padding: 60px 0;
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .leasing-info {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .leasing-info h3 {
-      color: #0faabe;
-    }
-
-    .leasing-benefits i {
-      color: #0faabe;
-      font-size: 1.5rem;
-      margin-right: 10px;
-    }
-
-    .leasing-benefits li {
-      margin-bottom: 15px;
-    }
-
-    footer {
-      background: #f1f1f1;
-      padding: 20px 0;
-      text-align: center;
-      margin-top: 50px;
-    }
-                /* Navbar adjustments */
-                .navbar {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Leasing | Phoenix Motors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
             background-color: #f8f9fa;
-            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .header-section {
+            background-image: linear-gradient(135deg, #000000, #0faabe);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .leasing-info {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .leasing-info h3 {
+            color: #0faabe;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .leasing-benefits i {
+            color: #0faabe;
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+
+        .leasing-benefits li {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            background: #f1f1f1;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+            color: #555;
+        }
+
+        /* Navbar adjustments */
+        .navbar {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .navbar-brand img {
@@ -66,153 +85,374 @@
         }
 
         .navbar-brand h1 {
-            font-weight: bold;
-            font-size: 24px;
+            font-size: 26px;
             margin: 0;
             color: #0987ad;
         }
-  </style>
+
+        /* Additional Styles for New Features */
+        .car-models-section {
+            background-color: #ffffff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .car-model-card {
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .car-model-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .car-model-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .car-model-card .card-body {
+            padding: 25px;
+        }
+
+        .faq-section {
+            background-color: #e9ecef;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-item h5 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+
+        .dark-mode .card,
+        .dark-mode .modal-content,
+        .dark-mode .leasing-info {
+            background-color: #1e1e1e;
+            color: #f8f9fa;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: #f0f8ff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Lease Calculator Section */
+        .lease-calculator-section {
+            background-color: #ffffff;
+            padding: 60px 0;
+            margin-top: 60px;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .calculator-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .calculator-form label {
+            font-weight: 500;
+        }
+
+        .calculator-form .btn-primary {
+            background-color: #0faabe;
+            border-color: #0faabe;
+        }
+
+        .calculator-form .btn-primary:hover {
+            background-color: #0987ad;
+            border-color: #0987ad;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
-        <h1 class="mb-0" style="font-size: 24px;">Phoenix Motors</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="inventory.html">Inventory</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Sell My Car.html">Sell My Car</a>
-            </li>
-            <li class="nav-item" style="background-color: #0faabe;">
-                <a class="nav-link" href="Car Leasing.html">Car Leasing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Services.html">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Shop.HTML">Shop</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Contact.HTML">Contact</a>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-link nav-link" id="darkModeToggle">
-                  <i class="fas fa-moon"></i>
-                </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="picture room/2 log.jpeg" alt="Phoenix Motors Logo" style="max-height: 50px; margin-right: 10px;">
+            <h1 class="mb-0">Phoenix Motors</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
+                <li class="nav-item"><a class="nav-link" href="Sell My Car.html">Sell My Car</a></li>
+                <li class="nav-item" style="background-color: #0faabe;"><a class="nav-link" href="Car Leasing.html">Car Leasing</a></li>
+                <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="Shop.HTML">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="Contact.HTML">Contact</a></li>
+                <li class="nav-item"><button class="btn btn-link nav-link" id="darkModeToggle"><i class="fas fa-moon"></i></button></li>
+                <li class="nav-item Active" style="background: linear-gradient(to right, #7b00ff, #0057ee);"><a class="nav-link" href="Admin.html" style="color: white;">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-search"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header-section">
+        <div class="container">
+            <h1>Unlock Your Dream Drive with Flexible Leasing</h1>
+            <p>Experience the joy of driving a new car without the long-term commitment.</p>
+        </div>
+    </header>
+    <section class="car-models-section">
+      <div class="container">
+          <h2 class="text-center mb-5">Explore Our Featured Leasing Models</h2>
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                  <div class="card car-model-card">
+                      <img src="picture room/listing_main_Suzuki-Swift-2018-1024-35.jpg" class="card-img-top" alt="Car Model 1">
+                      <div class="card-body">
+                          <h5 class="card-title">Luxury Sedan</h5>
+                          <p class="card-text">Experience ultimate comfort and sophistication with our premium sedan. Advanced technology and elegant design.</p>
+                          <a href="#" class="btn btn-outline-primary">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card car-model-card">
+                      <img src="picture room/LAND.jpg" class="card-img-top" alt="Car Model 2">
+                      <div class="card-body">
+                          <h5 class="card-title">Family SUV</h5>
+                          <p class="card-text">Perfect for adventures and family trips. Spacious interior, powerful performance, and top safety ratings.</p>
+                          <a href="#" class="btn btn-outline-primary">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card car-model-card">
+                      <img src="picture room/Prado.jpg" class="card-img-top" alt="Car Model 3">
+                      <div class="card-body">
+                          <h5 class="card-title">Sports Coupe</h5>
+                          <p class="card-text">Unleash your driving passion with this sleek and powerful sports coupe. Dynamic handling and stylish design.</p>
+                          <a href="#" class="btn btn-outline-primary">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+    
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 leasing-info">
+                <h3>Why Choose Phoenix Motors for Your Lease?</h3>
+                <ul class="list-unstyled leasing-benefits mt-4">
+                    <li><i class="fas fa-dollar-sign"></i> Lower Monthly Payments: Drive your dream car for less.</li>
+                    <li><i class="fas fa-car"></i> Stay Updated: Enjoy the latest models with cutting-edge features.</li>
+                    <li><i class="fas fa-tools"></i> Hassle-Free Maintenance: Most leases include warranty coverage.</li>
+                    <li><i class="fas fa-handshake"></i> Flexible Terms: Tailored lease plans to fit your lifestyle.</li>
+                    <li><i class="fas fa-leaf"></i> Eco-Friendly Options: Explore our range of electric and hybrid vehicles.</li>
+                </ul>
+
+                <h4 class="mt-5">Start Your Leasing Journey Today</h4>
+                <form id="leasingForm" action="https://formsubmit.co/samuelkebede094@gmail.com" method="POST">
+                  <input type="hidden" name="_subject" value="New Car Leasing Request!">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_autoresponse" value="Thank you for your submission. We will contact you soon!">
+                  <input type="hidden" name="_captcha" value="false">
+                  <!-- Add your input fields here -->
+              </form>
+                    <input type="hidden" name="_subject" value="New Car Leasing Request!">
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="name" class="form-label">Full Name</label><input type="text" name="Full Name" class="form-control" id="name" required></div>
+                        <div class="col-md-6 mb-3"><label for="email" class="form-label">Email Address</label><input type="email" name="Email" class="form-control" id="email" required></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="carModel" class="form-label">Preferred Car Model</label><input type="text" name="Car Model" class="form-control" id="carModel"></div>
+                        <div class="col-md-6 mb-3"><label for="leaseTerm" class="form-label">Lease Term</label><select class="form-select" name="Lease Term" id="leaseTerm"><option disabled selected>Select term</option><option>12 Months</option><option>24 Months</option><option>36 Months</option><option>48 Months</option><option>60 Months</option></select></div>
+                    </div>
+                    <div class="mb-3"><label for="message" class="form-label">Additional Info or Questions</label><textarea class="form-control" name="Message" id="message" rows="4"></textarea></div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <section class="lease-calculator-section">
+            <div class="container">
+                <h2 class="text-center mb-4">Estimate Your Monthly Lease Payment</h2>
+                <div class="calculator-form">
+                    <form id="leaseCalculator">
+                        <div class="mb-3"><label for="vehiclePrice" class="form-label">Vehicle Price</label><input type="number" class="form-control" id="vehiclePrice" value="30000" min="0"></div>
+                        <div class="mb-3"><label for="downPayment" class="form-label">Down Payment</label><input type="number" class="form-control" id="downPayment" value="3000" min="0"></div>
+                        <div class="mb-3"><label for="leaseTermMonths" class="form-label">Lease Term (Months)</label><select class="form-select" id="leaseTermMonths"><option value="24">24 Months</option><option value="36" selected>36 Months</option><option value="48">48 Months</option></select></div>
+                        <div class="mb-3"><label for="interestRate" class="form-label">Interest Rate (%)</label><input type="number" class="form-control" id="interestRate" value="5" min="0" step="0.1"></div>
+                        <button type="button" class="btn btn-primary w-100" onclick="calculateLease()">Calculate Payment</button>
+                    </form>
+                    <div id="leaseResult" class="mt-3 text-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <h2 class="text-center mb-5">Hear From Our Satisfied Customers</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="testimonial">
+                            "Leasing with Phoenix Motors was a fantastic experience. They made the process simple and stress-free."
+                            <span class="testimonial-author">- Jane Doe</span>
+                        </div>
+                        <div class="testimonial">
+                            "I love my new leased car! The team at Phoenix Motors was incredibly helpful and professional."
+                            <span class="testimonial-author">- John Smith</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="faq-item">
+                            <h5>What are the advantages of leasing a car?</h5>
+                            <p>Leasing offers lower monthly payments, the ability to drive a new car more often, and often includes maintenance and warranty coverage.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h5>What lease terms are available?</h5>
+                            <p>We provide flexible lease terms ranging from 12 to 60 months to accommodate your specific needs.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h5>Are there mileage restrictions with leasing?</h5>
+                            <p>Yes, most leases have mileage limits. We offer various mileage options to suit different driving habits.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h5>What happens at the end of my lease term?</h5>
+                            <p>At the end of your lease, you can typically return the vehicle, purchase it, or lease a new one.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+     <!-- Payment Popup Modal -->
+     <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentModalLabel">Payment Options</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-3">Thank you for submitting your lease request! Please choose your preferred payment method below:</p>
+            <ul class="list-group mb-3">
+              <li class="list-group-item">
+                <strong>Bank Transfer</strong><br>
+                Bank: Phoenix National<br>
+                Account No: 12345678<br>
+                Sort Code: 12-34-56
               </li>
-              <li class="nav-item Active" style="background: linear-gradient(to right, #7b00ff, #0057ee);">
-                <a class="nav-link" href="Admin.html" style="color: white;">Admin</a>
-            </li>
-              
-              <script>
-                // Dark mode toggle
-                document.getElementById('darkModeToggle').addEventListener('click', function() {
-                  document.body.classList.toggle('dark-mode');
-                  this.querySelector('i').classList.toggle('fa-sun');
-                });
-              </script>
-              
-              <style>
-                .dark-mode {
-                  background-color: #121212;
-                  color: #f8f9fa;
-                }
-                .dark-mode .card {
-                  background-color: #1e1e1e;
-                  color: #f8f9fa;
-                }
-                .dark-mode .modal-content {
-                  background-color: #1e1e1e;
-                  color: #f8f9fa;
-                }
-              </style>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-  <header class="header-section">
-    <div class="container">
-      <h1>Car Leasing Made Easy</h1>
-      <p>Affordable options, flexible plans, and premium vehicle choices</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 leasing-info">
-        <h3>Why Lease with Phoenix Motors?</h3>
-        <ul class="list-unstyled leasing-benefits mt-4">
-          <li><i class="fas fa-dollar-sign"></i>Lower monthly payments compared to buying</li>
-          <li><i class="fas fa-car"></i>Drive a new car every few years</li>
-          <li><i class="fas fa-tools"></i>Maintenance and warranty coverage included</li>
-          <li><i class="fas fa-handshake"></i>Flexible lease terms from 12 to 60 months</li>
-          <li><i class="fas fa-leaf"></i>Electric and hybrid models available</li>
-        </ul>
-
-        <h4 class="mt-5">Start Your Leasing Journey</h4>
-        <form class="mt-3">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="name" placeholder="John Doe" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-            </div>
+              <li class="list-group-item">
+                <strong>PayPal:</strong> <a href="https://paypal.me/phoenixmotors" target="_blank">paypal.me/phoenixmotors</a>
+              </li>
+              <li class="list-group-item text-center">
+                <a href="https://buy.stripe.com/test_6oE17A3k07vP8OA000" class="btn btn-success w-100 mt-2" target="_blank">Pay with Stripe</a>
+              </li>
+            </ul>
+            <p class="text-muted small">Please include your full name as reference when paying.</p>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="carModel" class="form-label">Preferred Car Model</label>
-              <input type="text" class="form-control" id="carModel" placeholder="e.g., Toyota Camry">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="leaseTerm" class="form-label">Lease Term</label>
-              <select class="form-select" id="leaseTerm">
-                <option selected disabled>Select term</option>
-                <option>12 Months</option>
-                <option>24 Months</option>
-                <option>36 Months</option>
-                <option>48 Months</option>
-                <option>60 Months</option>
-              </select>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Additional Info or Questions</label>
-            <textarea class="form-control" id="message" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Submit Request</button>
-        </form>
+        </div>
       </div>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2024 Phoenix Motors. All rights reserved.</p>
-  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("leasingForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            paymentModal.show();
+            form.reset();
+          } else {
+            alert("There was an error submitting the form.");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          alert("An unexpected error occurred.");
+        });
+      });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Phoenix Motors. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            this.querySelector('i').classList.toggle('fa-sun');
+        });
+
+        function calculateLease() {
+            const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const leaseTermMonths = parseInt(document.getElementById('leaseTermMonths').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+
+            const principal = vehiclePrice - downPayment;
+            const monthlyPayment = (principal * interestRate * Math.pow(1 + interestRate, leaseTermMonths)) /
+                (Math.pow(1 + interestRate, leaseTermMonths) - 1);
+
+            if (isNaN(monthlyPayment) || !isFinite(monthlyPayment)) {
+                document.getElementById('leaseResult').textContent = "Please enter valid numbers.";
+            } else {
+                document.getElementById('leaseResult').textContent = `Estimated Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+            }
+        }
+    </script>
 </body>
 
 </html>
